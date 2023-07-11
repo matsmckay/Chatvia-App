@@ -1,16 +1,13 @@
 import React from 'react'
 
-const Home = () => {
+const Profile = () => {
   return (
     <div className='nav-bar'>
       <div className='user'>
-        <h1>hi</h1>
-      </div>
-      <div className='userGroup'>
-        <h2>yo</h2>
+        <h1>Profile component</h1>
       </div>
     </div>
   )
 }
 
-export default Home
+export default Profile
