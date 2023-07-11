@@ -8,6 +8,12 @@ import Contacts from './pages/Contacts'
 import Settings from './pages/Settings'
 import DarkMode from './pages/DarkMode'
 
+// icons
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUserGroup } from '@fortawesome/free-solid-svg-icons'
+import { faAddressBook } from '@fortawesome/free-solid-svg-icons'
+
 function App() {
   return (
     <BrowserRouter>
@@ -16,16 +22,22 @@ function App() {
           <h1 className='nav-top'>ChatVia</h1>
           <div className='navLink-container'>
             <h2>
-              <NavLink to='/'>Profile (icon button)</NavLink>
+              <NavLink to='/'>
+                <FontAwesomeIcon icon={faUser} />
+              </NavLink>
             </h2>
             <h2>
               <NavLink to='chats'>Chats</NavLink>
             </h2>
             <h2>
-              <NavLink to='groupchats'>Group Chats</NavLink>
+              <NavLink to='groupchats'>
+                <FontAwesomeIcon icon={faUserGroup} />
+              </NavLink>
             </h2>
             <h2>
-              <NavLink to='contacts'>Contacts</NavLink>
+              <NavLink to='contacts'>
+                <FontAwesomeIcon icon={faAddressBook} />
+              </NavLink>
             </h2>
             <h2>
               <NavLink to='settings'>Settings</NavLink>
