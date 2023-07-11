@@ -5,6 +5,7 @@
   --primary: #bc4123;
   --secondary: #2b3452;
 }
+
 body {
   margin: 0;
   padding: 20px;
@@ -27,7 +28,36 @@ button {
   cursor: pointer;
 }
 
+/* entire chat app div */
+
+.chat-container {
+  display: flex;
+  gap: 15%;
+}
+
 /* navbar */
+
+header nav {
+  display: flex;
+  flex-direction: column;
+}
+
+header nav a {
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+header nav a.active {
+  background: var(--primary);
+}
+
+.nav-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 /* page content */
 
