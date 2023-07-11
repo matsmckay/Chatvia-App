@@ -18,7 +18,7 @@ const Navbar = () => {
     <nav className='nav-container'>
       <div className='nav-top'>
         <div className='navLink-about'>
-          <NavLink to='about'>
+          <Link to='about'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 100 100'
@@ -31,7 +31,7 @@ const Navbar = () => {
                 fill='rgba(114,105,239,1)'
               />
             </svg>
-          </NavLink>
+          </Link>
         </div>
       </div>
       <div className='navLink-container'>
@@ -69,7 +69,11 @@ const Navbar = () => {
         </h2>
         <h2>
           <NavLink to='/'>
-            <img src={pic} alt='' />
+            <img
+              className='current-user'
+              src={pic}
+              alt='Image of the current user on ChatVia'
+            />
           </NavLink>
         </h2>
       </div>

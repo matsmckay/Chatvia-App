@@ -59,6 +59,10 @@ header nav a.active {
   justify-content: space-between;
 }
 
+.current-user {
+  border-radius: 50%;
+  width: 10%;
+}
 /* page content */
 
 /* help layout */

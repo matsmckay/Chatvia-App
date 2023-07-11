@@ -17,9 +17,7 @@ function App() {
   return (
     <div className='chat-container'>
       <BrowserRouter>
-        <header>
-          <Navbar />
-        </header>
+        <Navbar />
         <main>
           <Routes>
             <Route path='about' element={<About />} />
