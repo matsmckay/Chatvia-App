@@ -14,6 +14,7 @@ import Contacts from './pages/Contacts'
 import Settings from './pages/Settings'
 import DarkMode from './pages/DarkMode'
 import Profile from './pages/Profile'
+import ErrorPage from './pages/ErrorPage'
 
 function App() {
   return (
@@ -21,8 +22,8 @@ function App() {
       <Routes>
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
-        <Route element={<Navbar />}>
-          <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navbar />}>
+          <Route index element={<Home />} />
           <Route path='/about' element={<About />} />
           <Route path='/chats' element={<Chats />} />
           <Route path='/groupchats' element={<GroupChats />} />
@@ -31,6 +32,7 @@ function App() {
           <Route path='/darkmode' element={<DarkMode />} />
           <Route path='/profile' element={<Profile />} />
         </Route>
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
     </Router>
   )

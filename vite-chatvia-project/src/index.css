@@ -72,15 +72,20 @@ nav a.active {
 .nav-container {
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 10%;
-  padding: 20px;
+  flex-direction: row;
 }
 
 .nav-top a {
   background: white;
   display: inline-block;
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+  padding: 20px;
 }
 
 .current-user {
@@ -102,8 +107,7 @@ nav a.active {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: blue;
-  background-color: black;
+  color: var(--primary);
 }
 
 .error-page {
