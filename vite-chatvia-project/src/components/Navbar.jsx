@@ -16,49 +16,46 @@ import {
 const Navbar = () => {
   return (
     <nav className='nav-container'>
-      <h3>
-        <Link to='/'>chatvia</Link>
-      </h3>
       <div>
-        <Link to='register'>Register</Link>
-        <Link to='login'>Login</Link>
+        <h3>
+          <Link to='/'>chatvia</Link>
+        </h3>
       </div>
-
       <ul className='navLink-container'>
         <li>
-          <NavLink to='about'>
+          <NavLink to='/about'>
             <FontAwesomeIcon icon={faUser} alt='User' />
           </NavLink>
         </li>
         <li>
-          <NavLink to='chats'>
+          <NavLink to='/chats'>
             <FontAwesomeIcon icon={faCommentDots} alt='Chats' />
           </NavLink>
         </li>
         <li>
-          <NavLink to='groupchats'>
+          <NavLink to='/groupchats'>
             <FontAwesomeIcon icon={faUserGroup} alt='Group Chats' />
           </NavLink>
         </li>
         <li>
-          <NavLink to='contacts'>
+          <NavLink to='/contacts'>
             <FontAwesomeIcon icon={faAddressBook} alt='Contact List' />
           </NavLink>
         </li>
         <li>
-          <NavLink to='settings'>
+          <NavLink to='/settings'>
             <FontAwesomeIcon icon={faGear} alt='Settings' />
           </NavLink>
         </li>
       </ul>
       <ul className='nav-bottom'>
         <li>
-          <NavLink to='darkmode'>
+          <NavLink to='/darkmode'>
             <FontAwesomeIcon icon={faCircleHalfStroke} alt='Dark Mode button' />
           </NavLink>
         </li>
         <li>
-          <NavLink to='/'>
+          <NavLink to='/profile'>
             <img
               className='current-user'
               src={pic}

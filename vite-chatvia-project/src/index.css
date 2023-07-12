@@ -2,8 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 :root {
-  --primary: rgba(114, 105, 239, 1);
-  --secondary: #2b3452;
+  --primary: #7269ef;
+  --secondary: #fff;
+  --messageBubBg: #f5f7fb;
+  --chatBorders: #f0eff5;
+  --inputBg: #e6ebf5;
+  --sbMenuItems: #878a92;
+  --timeStamp: #7a7f9a;
+  --msgText: #343a40;
+  --notifPinkText: #ef476f;
+  --notifBgRed: #ef476f;
+  --darkModeBg: #262e35;
+  --darkModeBg2: #36404a;
 }
 
 body {
@@ -11,10 +21,6 @@ body {
   /* padding: 20px; */
   font-family: 'Poppins';
   background: var(--secondary);
-}
-* {
-  color: #fff;
-  margin: 0;
 }
 p {
   margin: 20px 0;
@@ -45,6 +51,7 @@ nav {
 
 nav li {
   margin-top: 15px;
+  list-style: none;
 }
 
 nav a {
@@ -52,12 +59,14 @@ nav a {
   margin-top: 1rem;
   padding: 6px;
   border-radius: 25%;
-  color: var(--primary);
-  background-color: #2b3452;
+  color: var(--sbMenuItems);
+  background-color: #fff;
 }
 
 nav a.active {
-  background: var(--primary);
+  background: var(--messageBubBg);
+  color: var(--primary);
+  border-radius: 25%;
 }
 
 .nav-container {
@@ -93,6 +102,8 @@ nav a.active {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: blue;
+  background-color: black;
 }
 
 .error-page {
