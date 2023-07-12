@@ -16,58 +16,48 @@ import {
 const Navbar = () => {
   return (
     <nav className='nav-container'>
-      <div className='nav-top'>
-        <div className='navLink-about'>
-          <Link to='about'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              viewBox='0 0 100 100'
-              width='120'
-              height='120'
-            >
-              <path fill='none' d='M0 0h24v24H0z' />
-              <path
-                d='M4.929 19.071A9.969 9.969 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10H2l2.929-2.929zM11 6v12h2V6h-2zM7 9v6h2V9H7zm8 0v6h2V9h-2z'
-                fill='rgba(114,105,239,1)'
-              />
-            </svg>
-          </Link>
-        </div>
+      <h3>
+        <Link to='/'>chatvia</Link>
+      </h3>
+      <div>
+        <Link to='register'>Register</Link>
+        <Link to='login'>Login</Link>
       </div>
-      <div className='navLink-container'>
-        <h2>
-          <NavLink to='/'>
+
+      <ul className='navLink-container'>
+        <li>
+          <NavLink to='about'>
             <FontAwesomeIcon icon={faUser} alt='User' />
           </NavLink>
-        </h2>
-        <h2>
+        </li>
+        <li>
           <NavLink to='chats'>
             <FontAwesomeIcon icon={faCommentDots} alt='Chats' />
           </NavLink>
-        </h2>
-        <h2>
+        </li>
+        <li>
           <NavLink to='groupchats'>
             <FontAwesomeIcon icon={faUserGroup} alt='Group Chats' />
           </NavLink>
-        </h2>
-        <h2>
+        </li>
+        <li>
           <NavLink to='contacts'>
             <FontAwesomeIcon icon={faAddressBook} alt='Contact List' />
           </NavLink>
-        </h2>
-        <h2>
+        </li>
+        <li>
           <NavLink to='settings'>
             <FontAwesomeIcon icon={faGear} alt='Settings' />
           </NavLink>
-        </h2>
-      </div>
-      <div className='nav-bottom'>
-        <h2>
+        </li>
+      </ul>
+      <ul className='nav-bottom'>
+        <li>
           <NavLink to='darkmode'>
             <FontAwesomeIcon icon={faCircleHalfStroke} alt='Dark Mode button' />
           </NavLink>
-        </h2>
-        <h2>
+        </li>
+        <li>
           <NavLink to='/'>
             <img
               className='current-user'
@@ -75,8 +65,8 @@ const Navbar = () => {
               alt='Image of the current user on ChatVia'
             />
           </NavLink>
-        </h2>
-      </div>
+        </li>
+      </ul>
     </nav>
   )
 }
