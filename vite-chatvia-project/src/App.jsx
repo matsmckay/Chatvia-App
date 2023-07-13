@@ -1,6 +1,12 @@
 import React from 'react'
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  Route,
+  NavLink,
+  createRoutesFromElements,
+  RouterProvider,
+} from 'react-router-dom'
 
 // pages
 import Register from './pages/Register'
@@ -16,26 +22,28 @@ import DarkMode from './pages/DarkMode'
 import Profile from './pages/Profile'
 import ErrorPage from './pages/ErrorPage'
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Navbar />}>
-          <Route index element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/chats' element={<Chats />} />
-          <Route path='/groupchats' element={<GroupChats />} />
-          <Route path='/contacts' element={<Contacts />} />
-          <Route path='/settings' element={<Settings />} />
-          <Route path='/darkmode' element={<DarkMode />} />
-          <Route path='/profile' element={<Profile />} />
-        </Route>
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-    </Router>
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path='/register' element={<Register />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/' element={<Navbar />}>
+        <Route index element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/chats' element={<Chats />} />
+        <Route path='/groupchats' element={<GroupChats />} />
+        <Route path='/contacts' element={<Contacts />} />
+        <Route path='/settings' element={<Settings />} />
+        <Route path='/darkmode' element={<DarkMode />} />
+        <Route path='/profile' element={<Profile />} />
+      </Route>
+      <Route path='*' element={<ErrorPage />} />
+    </Route>
   )
+)
+
+function App() {
+  return <RouterProvider router={router} />
 }
 
 export default App
