@@ -11,11 +11,12 @@ import {
   faCircleHalfStroke,
   faGear,
   faCommentDots,
+  faCircleUser,
 } from '@fortawesome/free-solid-svg-icons'
 
 const RootLayout = () => {
   return (
-    <div className='RootLayout'>
+    <div className='root-layout'>
       <header>
         <nav className='nav-container'>
           <div>
@@ -61,17 +62,18 @@ const RootLayout = () => {
             </li>
             <li>
               <NavLink to='/profile'>
-                <img
-                  className='current-user'
-                  src={pic}
-                  alt='Image of the current user on ChatVia'
+                <FontAwesomeIcon
+                  icon={faCircleUser}
+                  alt='Image of current user'
                 />
               </NavLink>
             </li>
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <main className='page-components'>
+        <Outlet />
+      </main>
       <section className='main-chat'>
         <h1>main chat screen</h1>
       </section>

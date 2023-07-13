@@ -43,6 +43,10 @@ button {
 
 /* navbar */
 
+.root-layout {
+  display: flex;
+  flex-direction: row;
+}
 nav {
   display: flex;
   flex-direction: column;
@@ -78,11 +82,6 @@ nav a.active {
   padding: 20px;
 }
 
-.root-layout {
-  display: flex;
-  flex-direction: row;
-}
-
 .nav-top a {
   background: white;
   display: inline-block;
@@ -92,9 +91,23 @@ nav a.active {
   border-radius: 50%;
   width: 75%;
 }
-/* page content */
+/* page component */
+.page-components {
+  max-width: 200px;
+  margin: 40px auto;
+}
 
-/* help layout */
+/* main chat styles */
+
+.main-chat {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+/* menu items */
+.page-components {
+  background: var(--messageBubBg);
+}
 
 /* faq */
 
@@ -105,9 +118,9 @@ nav a.active {
 /* breadcrumbs */
 
 h1 {
-  font-size: 3.2em;
+  font-size: 24px;
   line-height: 1.1;
-  color: var(--primary);
+  color: var(--msgText);
 }
 
 .error-page {

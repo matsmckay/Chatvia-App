@@ -70,9 +70,11 @@ const Navbar = () => {
           </ul>
         </nav>
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <section className='main-chat'>
-        <h1>main chat screen</h1>
+        <h1>chat screen</h1>
       </section>
     </div>
   )
