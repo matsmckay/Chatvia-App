@@ -72,6 +72,14 @@ nav a.active {
 .nav-container {
   height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 10%;
+  padding: 20px;
+}
+
+.root-layout {
+  display: flex;
   flex-direction: row;
 }
 
@@ -80,17 +88,9 @@ nav a.active {
   display: inline-block;
 }
 
-.menu-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 10%;
-  padding: 20px;
-}
-
 .current-user {
   border-radius: 50%;
-  width: 10%;
+  width: 75%;
 }
 /* page content */
 

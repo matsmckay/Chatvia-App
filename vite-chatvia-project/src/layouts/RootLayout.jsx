@@ -1,4 +1,5 @@
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Link, Outlet } from 'react-router-dom'
+
 import pic from '../assets/users/avatar-1.jpg'
 
 // icons
@@ -10,18 +11,17 @@ import {
   faCircleHalfStroke,
   faGear,
   faCommentDots,
-  faCircleUser,
 } from '@fortawesome/free-solid-svg-icons'
 
-const Navbar = () => {
+const RootLayout = () => {
   return (
-    <div className='root-layout'>
+    <div className='RootLayout'>
       <header>
         <nav className='nav-container'>
           <div>
-            <h3>
+            <h1>
               <Link to='/'>chatvia</Link>
-            </h3>
+            </h1>
           </div>
           <ul className='navLink-container'>
             <li>
@@ -61,9 +61,10 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to='/profile'>
-                <FontAwesomeIcon
-                  icon={faCircleUser}
-                  alt='Image of current user'
+                <img
+                  className='current-user'
+                  src={pic}
+                  alt='Image of the current user on ChatVia'
                 />
               </NavLink>
             </li>
@@ -78,4 +79,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default RootLayout
