@@ -1,11 +1,12 @@
-import React from 'react'
+import UserAvailability from '../components/UserAvailability'
 
 const Profile = () => {
   return (
-    <div className='nav-bar'>
+    <div className='profile-component'>
       <div className='user'>
-        <h1>Profile component</h1>
+        <h2>My Profile</h2>
       </div>
+      <UserAvailability />
     </div>
   )
 }

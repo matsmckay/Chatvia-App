@@ -3,7 +3,7 @@ import React from 'react'
 const DarkMode = () => {
   return (
     <div>
-      <h1>DarkMode yall</h1>
+      <h2>DarkMode yall</h2>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import { NavLink, Link, Outlet } from 'react-router-dom'
 
-import pic from '../assets/users/avatar-1.jpg'
+import currentUserPic from '../assets/users/avatar-1.jpg'
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -62,12 +62,9 @@ const RootLayout = () => {
                   />
                 </NavLink>
               </li>
-              <li>
+              <li className='current-user'>
                 <NavLink to='/profile'>
-                  <FontAwesomeIcon
-                    icon={faCircleUser}
-                    alt='Image of current user'
-                  />
+                  <img src={currentUserPic} alt='' />
                 </NavLink>
               </li>
             </ul>
