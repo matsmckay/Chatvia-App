@@ -15,10 +15,10 @@ import GroupChats from './pages/GroupChats'
 import Contacts from './pages/Contacts'
 import DarkMode from './pages/DarkMode'
 import Profile from './pages/Profile'
-import ErrorPage from './pages/ErrorPage'
 import RootLayout from './layouts/RootLayout'
 import SettingsLayout from './layouts/SettingsLayout'
 import Help from './pages/settings/Help'
+import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -39,6 +39,8 @@ const router = createBrowserRouter(
         </Route>
         <Route path='darkmode' element={<DarkMode />} />
         <Route path='profile' element={<Profile />} />
+
+        <Route path='*' element={<NotFound />} />
       </Route>
     </Route>
   )
