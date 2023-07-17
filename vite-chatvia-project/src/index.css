@@ -48,7 +48,7 @@ button {
 
 .main-chat {
   flex: 10;
-  margin: 40px auto;
+  padding: 10px;
 }
 
 /* navbar */
@@ -124,6 +124,8 @@ nav a.active {
   flex: 5;
   background: var(--messageBubBg);
   border-right: 1px solid var(--chatBorders);
+  display: flex;
+  padding: 10px;
 }
 
 /* faq */
