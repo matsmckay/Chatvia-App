@@ -17,7 +17,7 @@ import {
 const RootLayout = () => {
   return (
     <div className='root-layout'>
-      <header>
+      <div className='menu-container'>
         <nav className='nav-container'>
           <div>
             <h1>
@@ -70,10 +70,10 @@ const RootLayout = () => {
             </li>
           </ul>
         </nav>
-      </header>
-      <main className='page-components'>
-        <Outlet />
-      </main>
+        <main className='page-components'>
+          <Outlet />
+        </main>
+      </div>
       <section className='main-chat'>
         <h1>main chat screen</h1>
       </section>
