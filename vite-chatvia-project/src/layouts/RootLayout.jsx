@@ -11,7 +11,6 @@ import {
   faCircleHalfStroke,
   faGear,
   faCommentDots,
-  faCircleUser,
 } from '@fortawesome/free-solid-svg-icons'
 import MainChatLayout from './MainChatLayout'
 

@@ -10,7 +10,7 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import About from './pages/About'
-import Chats from './pages/Chats'
+import ChatListLayout from './layouts/ChatListLayout'
 import GroupChats from './pages/GroupChats'
 import Contacts from './pages/Contacts'
 import DarkMode from './pages/DarkMode'
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path='/' element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path='about' element={<About />} />
-        <Route path='chats' element={<Chats />} />
+        <Route path='chats' element={<ChatListLayout />} />
         <Route path='groupchats' element={<GroupChats />} />
         <Route path='contacts' element={<Contacts />} />
         <Route path='settings' element={<SettingsLayout />}>

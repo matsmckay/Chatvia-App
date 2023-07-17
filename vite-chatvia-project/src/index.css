@@ -117,6 +117,56 @@ nav a.active {
   object-fit: cover;
 }
 
+/* Chat List */
+
+.search-form {
+  padding: 10px;
+}
+
+.search-form input {
+  border: none;
+  background: var(--inputBg);
+  border-radius: 2px;
+  outline: none;
+  padding: 10px;
+}
+
+.user-chat {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.user-chat:hover {
+  background: var(--inputBg);
+}
+
+.user-chat img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-chat-info span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.user-chat-info p {
+  font-size: 11px;
+  color: var(--sbMenuItems);
+  margin-top: 0;
+}
+
+/* Settings */
+
+.settings-layout {
+  height: 100vh;
+}
+
 /* page component */
 .page-components {
   flex: 6;
@@ -130,12 +180,6 @@ nav a.active {
   border-right: 1px solid var(--chatBorders);
   display: flex;
   padding: 10px;
-}
-
-/* Settings component */
-
-.settings-layout {
-  height: 100vh;
 }
 
 /* User available component */
