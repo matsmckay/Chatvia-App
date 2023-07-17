@@ -131,16 +131,26 @@ nav a.active {
   padding: 10px;
 }
 
+.chats {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+}
+
 .user-chat {
   padding: 10px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  width: 100%;
 }
 
 .user-chat:hover {
   background: var(--inputBg);
+  border-radius: 2%;
 }
 
 .user-chat img {
