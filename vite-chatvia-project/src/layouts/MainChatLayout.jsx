@@ -1,3 +1,4 @@
+import chatContactPic from '../assets/users/avatar-4.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMagnifyingGlass,
@@ -13,7 +14,10 @@ const MainChatLayout = () => {
   return (
     <div className='chat'>
       <div className='chat-info'>
-        <span>Patricia Smith</span>
+        <div className='contactContent'>
+          <img src={chatContactPic} alt='Pic of user you are chatting with' />
+          <span>Doris Brown</span>
+        </div>
         <ul className='chat-icons'>
           <li>
             <FontAwesomeIcon icon={faMagnifyingGlass} />

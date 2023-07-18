@@ -21,9 +21,9 @@ body {
   font-family: 'Poppins';
   background: var(--secondary);
 }
+
 p {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 /* entire chat app div */
@@ -58,21 +58,58 @@ p {
   border-bottom: 1px solid var(--chatBorders);
 }
 
+.contactContent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contactContent img {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
 .chat-icons {
   list-style: none;
   display: flex;
   color: var(--sbMenuItems);
   cursor: pointer;
-}
-
-.chat-icons li {
-  padding-right: 1.25rem;
+  gap: 20px;
 }
 
 .messages {
-  background: var(--primary);
   padding: 10px;
   height: 100%;
+}
+
+.message {
+  display: flex;
+  gap: 10px;
+}
+
+.messagePic {
+  display: flex;
+  align-items: end;
+}
+
+.messagePic img {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+}
+
+.messageInfo {
+  background: var(--primary);
+  padding: 10px;
+}
+
+.messageInfo p {
+  color: var(--secondary);
+}
+.messageInfo span {
+  color: var(--sbMenuItems);
+  text-align: right;
 }
 
 /* Input ClassName */
