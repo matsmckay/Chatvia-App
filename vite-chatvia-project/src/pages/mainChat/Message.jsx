@@ -1,12 +1,12 @@
-import chatContactPic from '../../assets/users/avatar-4.jpg'
+import currentUserPic from '../../assets/users/avatar-1.jpg'
 import chatSentImage from '../../assets/small/img-1.jpg'
 
 const Message = () => {
   return (
-    <div className='message'>
+    <div className='message owner'>
       <div className='messagePic'>
         <img
-          src={chatContactPic}
+          src={currentUserPic}
           alt='Pic of person you are having a chat with'
         />
       </div>

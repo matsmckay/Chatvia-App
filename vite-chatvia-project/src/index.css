@@ -90,6 +90,19 @@ p {
   gap: 10px;
 }
 
+.owner {
+  flex-direction: row-reverse;
+}
+
+.owner .messageInfo {
+  background: var(--messageBubBg);
+  border-radius: 10px 10px 0px 10px;
+}
+
+.owner .messageInfo p {
+  color: var(--msgText);
+}
+
 .messagePic {
   display: flex;
   align-items: end;
@@ -103,7 +116,7 @@ p {
 }
 
 .messageContent {
-  max-width: 80%;
+  max-width: 40%;
 }
 
 .messageInfo {
@@ -111,6 +124,8 @@ p {
   padding: 10px;
   display: flex;
   flex-direction: column;
+  border-radius: 10px 10px 10px 0px;
+  max-width: max-content;
 }
 
 .messageInfo p {
@@ -118,11 +133,15 @@ p {
 }
 
 .messageInfo img {
-  width: 50%;
+  width: 100%;
 }
 
 .messageInfo span {
   color: var(--sbMenuItems);
+  text-align: right;
+}
+
+.owner .messageSender p {
   text-align: right;
 }
 
