@@ -1,4 +1,5 @@
 import chatContactPic from '../../assets/users/avatar-4.jpg'
+import chatSentImage from '../../assets/small/img-1.jpg'
 
 const Message = () => {
   return (
@@ -12,6 +13,7 @@ const Message = () => {
       <div className='messageContent'>
         <div className='messageInfo'>
           <p>Wassssssssssup</p>
+          <img src={chatSentImage} alt='Random Image sent by chat contact' />
           <span>Just Now</span>
         </div>
         <div className='messageSender'>
