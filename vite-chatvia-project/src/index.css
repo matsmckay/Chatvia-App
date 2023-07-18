@@ -25,14 +25,6 @@ p {
   margin-top: 10px;
   margin-bottom: 0;
 }
-button {
-  border: 0;
-  padding: 8px;
-  border-radius: 4px;
-  color: white;
-  background: var(--primary);
-  cursor: pointer;
-}
 
 /* entire chat app div */
 
@@ -47,7 +39,7 @@ button {
   background: var(--messageBubBg);
 }
 
-/* Main chat section styles */
+/* MAIN CHAT SECTION STYLE */
 
 .chat {
   height: calc(100% - 160px);
@@ -83,15 +75,52 @@ button {
   height: 100%;
 }
 
+/* Input ClassName */
 .input {
   height: 50px;
   background: var(--secondary);
   border-top: 1px solid var(--chatBorders);
   border-bottom: 1px solid var(--chatBorders);
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* navbar */
+/* Input HTML element */
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: var(--inputBg);
+  color: var(--primary);
+  padding: 10px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+input::placeholder {
+  color: var(--darkModeBg);
+}
+
+.send {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+.send button {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  color: white;
+  background: var(--primary);
+  cursor: pointer;
+}
+/* NAVBAR/ROOT LAYOUT STYLING */
 
 .root-layout {
   display: flex;
@@ -155,7 +184,7 @@ nav a.active {
   object-fit: cover;
 }
 
-/* Chat List */
+/* CHAT LIST */
 
 .search-form {
   padding: 10px;
@@ -207,7 +236,7 @@ nav a.active {
   margin-top: 0;
 }
 
-/* Settings */
+/* SETTINGS */
 
 .settings-layout {
   height: 100vh;
@@ -241,14 +270,6 @@ nav a.active {
   border-radius: 50%;
   width: calc(100% / 3);
 }
-
-/* faq */
-
-/* careers list */
-
-/* careers details */
-
-/* breadcrumbs */
 
 h1 {
   font-size: 24px;
