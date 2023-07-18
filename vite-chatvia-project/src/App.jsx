@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route path='/' element={<RootLayout />}>
         <Route index element={<Home />} />
-        <Route path='about' element={<About />} />
+        <Route path='profile' element={<Profile />} />
         <Route path='chats' element={<ChatListLayout />} />
         <Route path='groupchats' element={<GroupChats />} />
         <Route path='contacts' element={<Contacts />} />
@@ -38,7 +38,7 @@ const router = createBrowserRouter(
           <Route path='help' element={<Help />} />
         </Route>
         <Route path='darkmode' element={<DarkMode />} />
-        <Route path='profile' element={<Profile />} />
+        <Route path='about' element={<About />} />
 
         <Route path='*' element={<NotFound />} />
       </Route>

@@ -27,7 +27,7 @@ const RootLayout = () => {
             </div>
             <ul className='navLink-container'>
               <li>
-                <NavLink to='/about'>
+                <NavLink to='profile'>
                   <FontAwesomeIcon icon={faUser} alt='User' />
                 </NavLink>
               </li>
@@ -37,24 +37,24 @@ const RootLayout = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/groupchats'>
+                <NavLink to='groupchats'>
                   <FontAwesomeIcon icon={faUserGroup} alt='Group Chats' />
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/contacts'>
+                <NavLink to='contacts'>
                   <FontAwesomeIcon icon={faAddressBook} alt='Contact List' />
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/settings'>
+                <NavLink to='settings'>
                   <FontAwesomeIcon icon={faGear} alt='Settings' />
                 </NavLink>
               </li>
             </ul>
             <ul className='nav-bottom'>
               <li>
-                <NavLink to='/darkmode'>
+                <NavLink to='darkmode'>
                   <FontAwesomeIcon
                     icon={faCircleHalfStroke}
                     alt='Dark Mode button'
@@ -62,7 +62,7 @@ const RootLayout = () => {
                 </NavLink>
               </li>
               <li className='current-user'>
-                <NavLink to='/profile'>
+                <NavLink to='about'>
                   <img src={currentUserPic} alt='' />
                 </NavLink>
               </li>

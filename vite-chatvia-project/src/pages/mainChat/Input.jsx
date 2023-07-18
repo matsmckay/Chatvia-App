@@ -1,7 +1,12 @@
-import React from 'react'
-
 const Input = () => {
-  return <div>User input text box</div>
+  return (
+    <div className='input'>
+      <input type='text' placeholder='Enter Message...' />
+      <div className='send'>
+        <p>poopsie do (erase this)</p>
+      </div>
+    </div>
+  )
 }
 
 export default Input

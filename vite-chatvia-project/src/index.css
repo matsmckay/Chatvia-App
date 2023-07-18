@@ -47,10 +47,48 @@ button {
   background: var(--messageBubBg);
 }
 
+/* Main chat section styles */
+
+.chat {
+  height: calc(100% - 160px);
+}
+
 .main-chat {
   flex: 10;
-  padding: 10px;
   margin: 0 auto;
+}
+
+.chat-info {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--chatBorders);
+}
+
+.chat-icons {
+  list-style: none;
+  display: flex;
+  color: var(--sbMenuItems);
+  cursor: pointer;
+}
+
+.chat-icons li {
+  padding-right: 1.25rem;
+}
+
+.messages {
+  background: var(--primary);
+  padding: 10px;
+  height: 100%;
+}
+
+.input {
+  height: 50px;
+  background: var(--secondary);
+  border-top: 1px solid var(--chatBorders);
+  border-bottom: 1px solid var(--chatBorders);
+  padding: 10px;
 }
 
 /* navbar */
@@ -134,8 +172,6 @@ nav a.active {
 .chats {
   display: flex;
   flex-direction: column;
-  /* justify-content: center;
-  align-items: center; */
 }
 
 .user-chat {
