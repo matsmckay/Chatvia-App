@@ -1,15 +1,16 @@
-import chatImg from '../../assets/users/avatar-2.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const Search = () => {
   return (
     <div className='search'>
+      <div className='header'>
+        <h2>Chats</h2>
+      </div>
       <div className='search-form'>
         <input type='text' placeholder='Search messages or users' />
-      </div>
-      <div className='user-chat'>
-        <img src={chatImg} alt='' />
-        <div className='user-chat-info'>
-          <span>Patrick Hendricks</span>
+        <div className='search-icon'>
+          <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@ import { faPaperclip, faFileImage } from '@fortawesome/free-solid-svg-icons'
 
 const Input = () => {
   return (
-    <div className='input'>
+    <div className='userInput'>
       <input type='text' placeholder='Enter Message...' />
       <div className='send'>
         <FontAwesomeIcon icon={faPaperclip} />

@@ -4,7 +4,6 @@ import Search from '../pages/chatList/Search'
 const ChatListLayout = () => {
   return (
     <div className='chat-layout'>
-      <h2>Chats</h2>
       <Search />
       <ChatList />
     </div>

@@ -13,10 +13,13 @@ import Input from '../pages/mainChat/Input'
 const MainChatLayout = () => {
   return (
     <div className='chat'>
-      <div className='chat-info'>
+      <header className='chat-info'>
         <div className='contactContent'>
-          <img src={chatContactPic} alt='Pic of user you are chatting with' />
-          <span>Doris Brown</span>
+          <div className='user-img'>
+            <img src={chatContactPic} alt='Pic of user you are chatting with' />
+          </div>
+          <h4>Doris Brown</h4>
+          <span>Online</span>
         </div>
         <ul className='chat-icons'>
           <li>
@@ -35,7 +38,7 @@ const MainChatLayout = () => {
             <FontAwesomeIcon icon={faEllipsis} />
           </li>
         </ul>
-      </div>
+      </header>
       <Messages />
       <Input />
     </div>
