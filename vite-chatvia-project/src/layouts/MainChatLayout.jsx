@@ -14,12 +14,14 @@ const MainChatLayout = () => {
   return (
     <div className='chat'>
       <header className='chat-info'>
-        <div className='contactContent'>
-          <div className='user-img'>
+        <div className='contact-content'>
+          <div className='contact-img'>
             <img src={chatContactPic} alt='Pic of user you are chatting with' />
           </div>
-          <h4>Doris Brown</h4>
-          <span>Online</span>
+          <div className='contact-info'>
+            <h4>Doris Brown</h4>
+            <span>online</span>
+          </div>
         </div>
         <ul className='chat-icons'>
           <li>
