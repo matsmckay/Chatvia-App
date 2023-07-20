@@ -44,17 +44,106 @@ p {
 .main-chat {
   flex: 10;
   margin: 0 auto;
+  /* height: 100vh; */
 }
 .chat {
-  height: calc(100% - 160px);
+  height: calc(100vh);
+}
+
+.chat-box {
+  position: relative;
+  max-width: 100%;
+  overflow: auto;
+  padding: 50px;
+  border-top: 1px solid var(--chatBorders);
+  border-bottom: 1px solid var(--chatBorders);
+}
+
+.messages {
+  height: 100%;
+  overflow: auto;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  width: 100%;
+  margin: 5px 0;
+}
+
+.message p {
+  position: relative;
+  right: 0;
+  text-align: right;
+  max-width: 65%;
+  padding: 12px;
+  background: var(--messageBubBg);
+  border-radius: 10px;
+  font-size: 0.9em;
+}
+
+.message p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -12px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(
+    135deg,
+    var(--messageBubBg) 0%,
+    var(--messageBubBg) 50%,
+    transparent 50%,
+    transparent
+  );
+}
+
+.message p span {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85em;
+  opacity: 0.5;
+}
+
+.my-message {
+  justify-content: flex-end;
+}
+
+.my-message p {
+  background: var(--messageBubBg);
+}
+
+.frnd-message {
+  justify-content: flex-start;
+}
+
+.frnd-message p {
+  background: var(--primary);
+  text-align: left;
+}
+
+.message.frnd-message p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -12px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(
+    225deg,
+    var(--primary) 0%,
+    var(--primary) 50%,
+    transparent 50%,
+    transparent
+  );
 }
 
 .chat-info {
+  height: 60px;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--chatBorders);
 }
 
 .contact-content {
@@ -94,17 +183,6 @@ p {
   color: var(--sbMenuItems);
   cursor: pointer;
   gap: 20px;
-}
-
-.messages {
-  padding: 10px;
-  height: 100%;
-  overflow: scroll;
-}
-
-.message {
-  display: flex;
-  gap: 10px;
 }
 
 .owner {
@@ -164,9 +242,9 @@ p {
 
 /* Input ClassName */
 .userInput {
-  height: 50px;
+  height: 60px;
   background: var(--secondary);
-  border-top: 1px solid var(--chatBorders);
+  /* border-top: 1px solid var(--chatBorders); */
   border-bottom: 1px solid var(--chatBorders);
   padding-top: 10px;
   padding-bottom: 10px;
@@ -306,7 +384,7 @@ nav a.active {
 /* CHATLIST  */
 
 .page-components {
-  height: calc(100% - 20px);
+  height: calc(100vh - 20px);
   /* width: 100%; */
   flex: 5;
   background: var(--messageBubBg);
