@@ -26,6 +26,37 @@ p {
   margin: 0;
 }
 
+/* Form */
+
+.form-group {
+  width: 100%;
+  overflow: hidden;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Registation Page */
+
+.registration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-header h1 {
+  text-align: center;
+}
+
+.submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
 /* entire chat app div */
 
 .container {
@@ -261,7 +292,6 @@ input {
   color: var(--primary);
   padding: 10px;
   border-radius: 5px;
-  /* margin-right: 10px; */
 }
 
 input::placeholder {
