@@ -43,7 +43,7 @@ const Register = () => {
       })
       navigate('/')
     } catch (error) {
-      setData({ ...data, error: err.message, loading: false })
+      setData({ ...data, error: error.message, loading: false })
     }
   }
 
