@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import { auth } from '../firebase'
+import { auth, db } from '../firebase'
+import { setDoc, doc, Timestamp } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const [data, setData] = useState({
@@ -10,6 +12,8 @@ const Register = () => {
     error: null,
     loading: false,
   })
+
+  const navigate = useNavigate()
 
   const { name, email, password, error, loading } = data
   const handleChange = (e) => {
@@ -23,8 +27,24 @@ const Register = () => {
     }
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password)
-      console.log(result.user)
-    } catch (error) {}
+      await setDoc(doc(db, 'users', result.user.uid), {
+        uid: result.user.uid,
+        name,
+        email,
+        createdAt: Timestamp.fromDate(new Date()),
+        isOnline: true,
+      })
+      setData({
+        name: '',
+        email: '',
+        password: '',
+        error: null,
+        loading: false,
+      })
+      navigate('/')
+    } catch (error) {
+      setData({ ...data, error: err.message, loading: false })
+    }
   }
 
   return (
@@ -92,7 +112,9 @@ const Register = () => {
         </div> */}
         {error ? <p className='error'>{error}</p> : null}
         <div className='btn-container'>
-          <button className='btn'>Sign up</button>
+          <button className='btn' disabled={loading}>
+            Sign up
+          </button>
         </div>
         <div className='terms'>
           <p>By registering you agree to the Chatvia</p>
