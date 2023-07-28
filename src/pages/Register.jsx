@@ -114,7 +114,7 @@ const Register = () => {
         {error ? <p className='error'>{error}</p> : null}
         <div className='btn-container'>
           <button className='btn' disabled={loading}>
-            Sign up
+            {loading ? 'Registering...' : 'Register'}
           </button>
         </div>
         <div className='terms'>
