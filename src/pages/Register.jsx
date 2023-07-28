@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import { setDoc, doc, Timestamp } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Register = () => {
   const [data, setData] = useState({
@@ -122,7 +123,10 @@ const Register = () => {
           <p>Terms of Use</p>
         </div>
       </form>
-      <div>Already have an account? Signin</div>
+      <div>
+        Already have an account?
+        <Link to='/login'>Sign In</Link>
+      </div>
       <p>Copyright blah blah</p>
     </div>
   )

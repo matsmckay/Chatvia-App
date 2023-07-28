@@ -3,6 +3,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import { updateDoc, doc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Login = () => {
   const [data, setData] = useState({
@@ -103,7 +104,9 @@ const Login = () => {
           <p>Terms of Use</p>
         </div> */}
       </form>
-      <div>Need to register an account? Sign up!</div>
+      <div>
+        Need to register an account?<Link to='/register'>Sign up!</Link>
+      </div>
       <p>Copyright blah blah</p>
     </div>
   )
