@@ -23,28 +23,30 @@ import NotFound from './pages/NotFound'
 
 // src
 import AuthProvider from './context/auth'
+import PrivateRoute from './components/PrivateRoute'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
       <Route path='register' element={<Register />} />
       <Route path='login' element={<Login />} />
-      <Route path='/' element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path='profile' element={<Profile />} />
-        <Route path='chats' element={<ChatListLayout />} />
-        <Route path='groupchats' element={<GroupChats />} />
-        <Route path='contacts' element={<Contacts />} />
-        <Route path='settings' element={<SettingsLayout />}>
-          <Route path='personalInfo' />
-          <Route path='privacy' />
-          <Route path='security' />
-          <Route path='help' element={<Help />} />
+      <Route exact path='/' element={<PrivateRoute />}>
+        <Route exact path='/' element={<RootLayout />}>
+          <Route path='home' element={<Home />} />
+          <Route path='profile' element={<Profile />} />
+          <Route path='chats' element={<ChatListLayout />} />
+          <Route path='groupchats' element={<GroupChats />} />
+          <Route path='contacts' element={<Contacts />} />
+          <Route path='settings' element={<SettingsLayout />}>
+            <Route path='personalInfo' />
+            <Route path='privacy' />
+            <Route path='security' />
+            <Route path='help' element={<Help />} />
+          </Route>
+          <Route path='darkmode' element={<DarkMode />} />
+          <Route path='about' element={<About />} />
+          <Route path='*' element={<NotFound />} />
         </Route>
-        <Route path='darkmode' element={<DarkMode />} />
-        <Route path='about' element={<About />} />
-
-        <Route path='*' element={<NotFound />} />
       </Route>
     </Route>
   )

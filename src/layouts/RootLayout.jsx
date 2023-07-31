@@ -22,7 +22,7 @@ const RootLayout = () => {
           <nav className='nav-container'>
             <div>
               <h1>
-                <Link to='/'>CV</Link>
+                <Link to='home'>CV</Link>
               </h1>
             </div>
             <ul className='navLink-container'>

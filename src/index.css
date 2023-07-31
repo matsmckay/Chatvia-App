@@ -279,6 +279,7 @@ form {
 }
 
 /* Input ClassName */
+
 .userInput {
   height: 60px;
   background: var(--secondary);
@@ -291,6 +292,7 @@ form {
 }
 
 /* Input HTML element */
+
 input {
   width: 100%;
   border: none;
@@ -496,7 +498,7 @@ nav a.active {
   height: 100vh;
 }
 
-/* User available component */
+/* USER AVAILABLE COMPONENT */
 
 .user-available {
   display: flex;
@@ -524,3 +526,47 @@ h1 {
   justify-content: center;
   width: 100%;
 }
+
+/* LOADING COMPONENT */
+.loader {
+  margin-top: 4rem;
+  /* display: inline-block; */
+  text-align: center;
+}
+
+.loader__ball {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: var(--primaryColor);
+  margin-inline: 5px;
+  border-radius: 50%;
+  animation: bounce 187.5ms alternate infinite;
+}
+
+.loader__ball:nth-child(2) {
+  animation-delay: 62.5ms;
+}
+.loader__ball:nth-child(3) {
+  animation-delay: 125ms;
+}
+
+@keyframes bounce {
+  from {
+    transform: scaleX(1.25);
+  }
+  to {
+    transform: translateY(-50px) scale(1);
+  }
+}
+
+/* .loader {
+  position: relative;
+}
+
+.loading h2 {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */

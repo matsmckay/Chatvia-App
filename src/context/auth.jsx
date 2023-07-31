@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth'
 import { auth } from '../firebase'
+import Loading from '../components/Loading'
 
 export const AuthContext = createContext()
 
@@ -17,7 +18,8 @@ const AuthProvider = ({ children }) => {
     })
   }, [])
   if (loading) {
-    return 'loading'
+    return <Loading />
+    // Loading component doesn't seem to be showing when loading so will need to look at this later
   }
   // as 'value' we will pass 'user' so that we can use it in our app
   return (
