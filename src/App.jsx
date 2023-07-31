@@ -1,3 +1,4 @@
+// react-router-dom
 import {
   createBrowserRouter,
   Route,
@@ -19,6 +20,9 @@ import RootLayout from './layouts/RootLayout'
 import SettingsLayout from './layouts/SettingsLayout'
 import Help from './pages/settings/Help'
 import NotFound from './pages/NotFound'
+
+// src
+import AuthProvider from './context/auth'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -47,7 +51,11 @@ const router = createBrowserRouter(
 )
 
 function App() {
-  return <RouterProvider router={router} />
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  )
 }
 
 export default App
