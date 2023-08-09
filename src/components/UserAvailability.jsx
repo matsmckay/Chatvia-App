@@ -1,6 +1,4 @@
 import currentUserPic from '../assets/users/avatar-1.jpg'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { storage, db, auth } from '../firebase'
 import {

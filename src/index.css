@@ -39,7 +39,6 @@ p {
 }
 .form-group {
   width: 100%;
-  /* overflow: hidden; */
 }
 
 form {
@@ -64,7 +63,7 @@ form {
   transform: scale(1.05);
 }
 
-/* entire chat app div */
+/* ENTIRE CHAT APP DIV */
 
 .container {
   display: flex;
@@ -82,8 +81,8 @@ form {
 .main-chat {
   flex: 10;
   margin: 0 auto;
-  /* height: 100vh; */
 }
+
 .chat {
   height: calc(100vh - 20px);
 }
@@ -519,7 +518,7 @@ nav a.active {
   background: var(--secondary);
 }
 
-/* USER AVAILABLE COMPONENT */
+/* USER AVAILABILITY COMPONENT */
 
 .availability-container {
   display: flex;
@@ -583,7 +582,7 @@ h1 {
 }
 
 .error-page {
-  color: red;
+  color: #f24957;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -591,10 +590,60 @@ h1 {
   width: 100%;
 }
 
+/* HOME COMPONENT */
+
+.users-container {
+  margin-top: 10px;
+  overflow-y: auto;
+}
+
+/* REGISTERED USERS COMPONENT */
+
+.registered-container {
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-detail {
+  display: flex;
+  align-items: center;
+}
+
+.user-detail h4 {
+  margin-left: 10px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--secondary);
+}
+
+.user-status {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.online {
+  background: #34eb52;
+}
+
+.offline {
+  background: #f24957;
+}
+
 /* LOADING COMPONENT */
+
 .loader {
   margin-top: 4rem;
-  /* display: inline-block; */
   text-align: center;
 }
 
@@ -623,14 +672,3 @@ h1 {
     transform: translateY(-50px) scale(1);
   }
 }
-
-/* .loader {
-  position: relative;
-}
-
-.loading h2 {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
