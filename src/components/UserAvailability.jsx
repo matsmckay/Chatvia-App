@@ -3,12 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
 import { useState, useEffect } from 'react'
 import { storage, db, auth } from '../firebase'
-import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
+import {
+  ref,
+  getDownloadURL,
+  uploadBytes,
+  deleteObject,
+} from 'firebase/storage'
 import { getDoc, doc, updateDoc } from 'firebase/firestore'
+import Delete from './icons/Delete'
+import Camera from './icons/Camera'
+import { useNavigate } from 'react-router-dom'
 
 const UserAvailability = () => {
   const [img, setImg] = useState('')
-  const [user, setUser] = useState()
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate('')
+
   // need to work with firebase storage here
   useEffect(() => {
     getDoc(doc(db, 'users', auth.currentUser.uid)).then((docSnap) => {
@@ -25,6 +35,9 @@ const UserAvailability = () => {
           `avatar/${new Date().getTime()} - ${img.name}`
         )
         try {
+          if (user.avatarPath) {
+            await deleteObject(ref(storage, user.avatarPath))
+          }
           const snap = await uploadBytes(imgRef, img)
           const url = await getDownloadURL(ref(storage, snap.ref.fullPath))
 
@@ -42,6 +55,24 @@ const UserAvailability = () => {
       uploadImg()
     }
   }, [img])
+
+  const deleteImage = async () => {
+    try {
+      const confirm = window.confirm('Delete avatar?')
+      if (confirm) {
+        await deleteObject(ref(storage, user.avatarPath))
+
+        await updateDoc(doc(db, 'users', auth.currentUser.uid), {
+          avatar: '',
+          avatarPath: '',
+        })
+        navigate('/chats')
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
   return user ? (
     <section>
       <div className='availability-container'>
@@ -51,10 +82,11 @@ const UserAvailability = () => {
             alt='Profile pic or avatar of current user'
           />
           <div className='overlay'>
-            <div>
+            <div className='profile-icons'>
               <label htmlFor='photo'>
-                <FontAwesomeIcon icon={faCameraRetro} />
+                <Camera />
               </label>
+              {user.avatar ? <Delete deleteImage={deleteImage} /> : null}
               <input
                 type='file'
                 accept='image/*'

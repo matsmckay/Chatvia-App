@@ -301,6 +301,7 @@ input {
   color: var(--primary);
   padding: 10px;
   border-radius: 5px;
+  padding: 5px 0;
 }
 
 input::placeholder {
@@ -519,6 +520,7 @@ nav a.active {
 }
 
 /* USER AVAILABLE COMPONENT */
+
 .availability-container {
   display: flex;
   flex-direction: column;
@@ -562,9 +564,12 @@ nav a.active {
   display: none;
 }
 
-.overlay svg {
+.upload-avatar {
   cursor: pointer;
-  background: var(--secondary);
+}
+.delete-avatar {
+  cursor: pointer;
+  color: #f24957;
 }
 
 .profile-text-container {
