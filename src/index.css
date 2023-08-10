@@ -26,6 +26,10 @@ p {
   margin: 0;
 }
 
+.test-chat-layout {
+  display: flex;
+}
+
 /* REGISTRATION PAGE */
 
 .registration-container {
@@ -430,7 +434,7 @@ nav a.active {
   overflow: auto;
 }
 
-.chats {
+.chats-container {
   position: relative;
   display: flex;
   flex-direction: column;
