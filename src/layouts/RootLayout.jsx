@@ -63,7 +63,7 @@ const RootLayout = () => {
               </li>
               <li className='current-user'>
                 <NavLink to='about'>
-                  <img src={currentUserPic} alt='' />
+                  <img src={currentUserPic} alt='Pic of current User' />
                 </NavLink>
               </li>
             </ul>
