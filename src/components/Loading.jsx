@@ -4,7 +4,6 @@ const Loading = () => {
       <span className='loader__ball'></span>
       <span className='loader__ball'></span>
       <span className='loader__ball'></span>
-      <h2>Loading...</h2>
     </div>
   )
 }

@@ -36,11 +36,7 @@ const router = createBrowserRouter(
           <Route path='home' element={<Home />} />
           <Route path='profile' element={<Profile />} />
           <Route path='chats' element={<ChatListLayout />}>
-            <Route
-              index
-              element={<ChatList />}
-              // loader={}
-            />
+            <Route index element={<ChatList />} />
           </Route>
           <Route path='groupchats' element={<GroupChats />} />
           <Route path='contacts' element={<Contacts />} />
