@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
-import { setDoc, doc, Timestamp } from 'firebase/firestore'
+import { setDoc, doc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
@@ -20,9 +20,15 @@ const Register = () => {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setData({ ...data, error: null, loading: true })
+    // const timestamp = Timestamp.fromDate(newDate())
+    // const createdAt = {
+    //   seconds: timestamp.seconds,
+    //   nanoseconds: timestamp.nanoseconds,
+    // }
     if (!name || !email || !password) {
       setData({ ...data, error: 'All fields are required' })
     }
@@ -32,7 +38,7 @@ const Register = () => {
         uid: result.user.uid,
         name,
         email,
-        createdAt: Timestamp.fromDate(new Date()),
+        // createdAt,
         isOnline: true,
       })
       setData({

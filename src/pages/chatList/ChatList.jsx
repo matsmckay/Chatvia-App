@@ -4,10 +4,15 @@ import { collection, query, where, onSnapshot } from 'firebase/firestore'
 import Search from './Search'
 import chatImg from '../../assets/users/avatar-2.jpg'
 import Loading from '../../components/Loading'
+import { useDispatch, useSelector } from 'react-redux'
+import { setChatList, setSelectedChatUser } from '../../features/cart/cartSlice'
 
 const ChatList = () => {
-  const [users, setUsers] = useState([])
-  const [chat, setchat] = useState('')
+  const dispatch = useDispatch()
+  const chatList = useSelector((state) => state.cart.chatList)
+  const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
+  // const [users, setUsers] = useState([])
+  // const [chat, setchat] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     const usersRef = collection(db, 'users')
@@ -19,13 +24,13 @@ const ChatList = () => {
       querySnapshot.forEach((doc) => {
         users.push(doc.data())
       })
-      setUsers(users)
+      dispatch(setChatList(users))
       setIsLoading(false)
     })
     return () => unsub()
   }, [])
   const selectUser = (user) => {
-    setchat(user)
+    dispatch(setSelectedChatUser(user))
     console.log(user)
   }
   return (
@@ -35,7 +40,7 @@ const ChatList = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        users.map((user) => (
+        chatList.map((user) => (
           <div
             className='chats-container'
             onClick={() => selectUser(user)}
@@ -56,6 +61,15 @@ const ChatList = () => {
           </div>
         ))
       )}
+      {/* <div className='messages-container'>
+        {selectedChatUser ? (
+          <div className='messages-user'>
+            <h3>{selectedChatUser.name}</h3>
+          </div>
+        ) : (
+          <h3 className='no-conv'>Select a user to start the conversation</h3>
+        )}
+      </div> */}
     </div>
   )
 }

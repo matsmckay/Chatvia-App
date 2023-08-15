@@ -59,12 +59,12 @@ const Profile = () => {
           />
           <button onClick={handleChangeDisplayName}>Change Display Name</button>
           <h4>Email: {user ? auth.currentUser.email : 'Not Available'}</h4>
-          <h4>
+          {/* <h4>
             Joined on:{' '}
             {user
               ? new Date(user.metadata.creationTime).toDateString()
               : 'Not Available'}
-          </h4>
+          </h4> */}
         </div>
       </div>
     </div>
