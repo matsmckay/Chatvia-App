@@ -13,9 +13,9 @@ import { setSelectedChatUser } from '../features/cart/cartSlice'
 const MainChatHeader = () => {
   const dispatch = useDispatch()
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
-  const handleBackClick = () => {
-    dispatch(setSelectedChatUser(null))
-  }
+  // const handleBackClick = () => {
+  //   dispatch(setSelectedChatUser(null))
+  // }
 
   return (
     <header className='chat-info'>
