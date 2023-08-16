@@ -13,25 +13,32 @@ import { setSelectedChatUser } from '../features/cart/cartSlice'
 const MainChatHeader = () => {
   const dispatch = useDispatch()
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
-  // const handleBackClick = () => {
-  //   dispatch(setSelectedChatUser(null))
-  // }
-
+  const handleBackClick = () => {
+    dispatch(setSelectedChatUser(null))
+  }
+  console.log(selectedChatUser)
   return (
     <header className='chat-info'>
       <div className='contact-content'>
         <div className='contact-img'>
           <img
-            src={selectedChatUser.avatar || chatContactPic}
-            alt='Pic of user you are chatting with'
+            src={
+              selectedChatUser
+                ? selectedChatUser.avatar || chatContactPic
+                : 'No pic available'
+            }
+            alt='User pic'
           />
         </div>
         <div className='contact-info'>
           <h4>
             {selectedChatUser ? selectedChatUser.name : 'No User Selected'}
           </h4>
-
-          <span>online</span>
+          <span>
+            {selectedChatUser
+              ? `${selectedChatUser.isOnline ? 'online' : 'offline'}`
+              : null}
+          </span>
         </div>
       </div>
       <ul className='chat-icons'>

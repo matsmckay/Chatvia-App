@@ -11,8 +11,6 @@ const ChatList = () => {
   const dispatch = useDispatch()
   const chatList = useSelector((state) => state.cart.chatList)
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
-  // const [users, setUsers] = useState([])
-  // const [chat, setchat] = useState('')
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     const usersRef = collection(db, 'users')
@@ -51,25 +49,22 @@ const ChatList = () => {
               <div className='user-chat-info'>
                 <div className='list-head'>
                   <h4>{user.name}</h4>
+
                   <p className='time'>11:47</p>
                 </div>
                 <div className='message-p'>
                   <p>Hello you bum!</p>
+                  <div
+                    className={`user-status ${
+                      user.isOnline ? 'online' : 'offline'
+                    }`}
+                  ></div>
                 </div>
               </div>
             </div>
           </div>
         ))
       )}
-      {/* <div className='messages-container'>
-        {selectedChatUser ? (
-          <div className='messages-user'>
-            <h3>{selectedChatUser.name}</h3>
-          </div>
-        ) : (
-          <h3 className='no-conv'>Select a user to start the conversation</h3>
-        )}
-      </div> */}
     </div>
   )
 }
