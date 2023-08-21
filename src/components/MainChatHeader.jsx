@@ -16,10 +16,13 @@ const MainChatHeader = () => {
   const handleBackClick = () => {
     dispatch(setSelectedChatUser(null))
   }
-  console.log(selectedChatUser)
+
   return (
     <header className='chat-info'>
       <div className='contact-content'>
+        <button className='btn' onClick={handleBackClick}>
+          Back
+        </button>
         <div className='contact-img'>
           <img
             src={

@@ -12,10 +12,12 @@ const ChatList = () => {
   const chatList = useSelector((state) => state.cart.chatList)
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
   const [isLoading, setIsLoading] = useState(true)
+  const user1 = auth.currentUser.uid
+
   useEffect(() => {
     const usersRef = collection(db, 'users')
     // create query object
-    const q = query(usersRef, where('uid', 'not-in', [auth.currentUser.uid]))
+    const q = query(usersRef, where('uid', 'not-in', [user1]))
     // execute query
     const unsub = onSnapshot(q, (querySnapshot) => {
       let users = []
@@ -29,8 +31,8 @@ const ChatList = () => {
   }, [])
   const selectUser = (user) => {
     dispatch(setSelectedChatUser(user))
-    console.log(user)
   }
+
   return (
     <div className='chat-layout'>
       <Search />
