@@ -15,20 +15,25 @@ const ChatList = () => {
   const user1 = auth.currentUser.uid
 
   useEffect(() => {
-    const usersRef = collection(db, 'users')
-    // create query object
-    const q = query(usersRef, where('uid', 'not-in', [user1]))
-    // execute query
-    const unsub = onSnapshot(q, (querySnapshot) => {
-      let users = []
-      querySnapshot.forEach((doc) => {
-        users.push(doc.data())
+    try {
+      const usersRef = collection(db, 'users')
+      // create query object
+      const q = query(usersRef, where('uid', 'not-in', [user1]))
+      // execute query
+      const unsub = onSnapshot(q, (querySnapshot) => {
+        let users = []
+        querySnapshot.forEach((doc) => {
+          users.push(doc.data())
+        })
+        dispatch(setChatList(users))
+        setIsLoading(false)
       })
-      dispatch(setChatList(users))
-      setIsLoading(false)
-    })
-    return () => unsub()
+      return () => unsub()
+    } catch (error) {
+      console.error('Firestore Error', error.message)
+    }
   }, [])
+
   const selectUser = (user) => {
     dispatch(setSelectedChatUser(user))
   }

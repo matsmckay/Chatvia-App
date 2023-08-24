@@ -1,13 +1,14 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
 
-const Input = ({ handleSubmit, text, setText }) => {
+const Input = ({ handleSubmit, text, setText, setImg }) => {
   return (
     <form className='userInput' onSubmit={handleSubmit}>
       <label htmlFor='img'>
         <FontAwesomeIcon icon={faPaperclip} />
       </label>
       <input
+        onChange={(e) => setImg(e.target.files[0])}
         type='file'
         id='img'
         accept='image/*'
@@ -15,10 +16,10 @@ const Input = ({ handleSubmit, text, setText }) => {
       />
       <div className='send'>
         <input
+          onChange={(e) => setText(e.target.value)}
           type='text'
           placeholder='Enter Message...'
           value={text}
-          onChange={(e) => setText(e.target.value)}
         />
       </div>
       <div>
