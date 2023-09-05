@@ -1,17 +1,17 @@
 import { useState } from 'react'
-import Messages from '../pages/mainChat/Messages'
+import Message from '../pages/mainChat/Message'
 import Input from '../pages/mainChat/Input'
 import MainChatHeader from '../components/MainChatHeader'
 import { db, auth, storage } from '../firebase'
 import { collection, addDoc, Timestamp, doc, setDoc } from 'firebase/firestore'
-import { setSelectedChatUser } from '../features/cart/cartSlice'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 
 const MainChatLayout = () => {
   const [text, setText] = useState('')
   const [img, setImg] = useState('')
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
+  const msgs = useSelector((state) => state.cart.msgs)
   // user1 is the currently logged in user
 
   const handleSubmit = async (e) => {
@@ -58,10 +58,15 @@ const MainChatLayout = () => {
     })
     setText('')
   }
+
   return (
     <div className='chat'>
       <MainChatHeader />
-      <Messages />
+      <div className='messages'>
+        {msgs.length
+          ? msgs.map((msg, i) => <Message key={i} msg={msg} />)
+          : null}
+      </div>
       <Input
         handleSubmit={handleSubmit}
         text={text}

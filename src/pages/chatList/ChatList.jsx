@@ -1,16 +1,25 @@
 import { useEffect, useState } from 'react'
 import { db, auth } from '../../firebase'
-import { collection, query, where, onSnapshot } from 'firebase/firestore'
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  orderBy,
+} from 'firebase/firestore'
 import Search from './Search'
 import chatImg from '../../assets/users/avatar-2.jpg'
 import Loading from '../../components/Loading'
 import { useDispatch, useSelector } from 'react-redux'
-import { setChatList, setSelectedChatUser } from '../../features/cart/cartSlice'
+import {
+  setChatList,
+  setSelectedChatUser,
+  setMsgs,
+} from '../../features/cart/cartSlice'
 
 const ChatList = () => {
   const dispatch = useDispatch()
   const chatList = useSelector((state) => state.cart.chatList)
-  const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
   const [isLoading, setIsLoading] = useState(true)
   const user1 = auth.currentUser.uid
 
@@ -36,8 +45,32 @@ const ChatList = () => {
 
   const selectUser = (user) => {
     dispatch(setSelectedChatUser(user))
-  }
+    const user2 = user.uid
+    const id = user1
+      ? user1 > user2
+        ? `${user1 + user2}`
+        : `${user2 + user1}`
+      : 'User not authenticated'
 
+    const msgsRef = collection(db, 'messages', id, 'chat')
+    const q = query(msgsRef, orderBy('createdAt', 'asc'))
+
+    onSnapshot(q, (querySnapshot) => {
+      let msgs = []
+      querySnapshot.forEach((doc) => {
+        const data = doc.data()
+        // convert Firestore Timestamp to milliseconds since epoch
+        const createdAtMillis = data.createdAt.toMillis()
+        // Create a new object with a timestamp in millseconds
+        const modifiedData = {
+          ...data,
+          createdAt: createdAtMillis,
+        }
+        msgs.push(modifiedData)
+      })
+      dispatch(setMsgs(msgs))
+    })
+  }
   return (
     <div className='chat-layout'>
       <Search />
