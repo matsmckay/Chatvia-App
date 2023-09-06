@@ -1,5 +1,4 @@
-import currentUserPic from '../../assets/users/avatar-1.jpg'
-import chatSentImage from '../../assets/small/img-1.jpg'
+import { formatDistanceToNow } from 'date-fns'
 
 const Message = ({ msg }) => {
   return (
@@ -9,7 +8,7 @@ const Message = ({ msg }) => {
           {msg.media ? <img src={msg.media} alt={msg.text} /> : null}
           {msg.text}
           <br />
-          <span>Just Now</span>
+          <span>{formatDistanceToNow(msg.createdAt)}</span>
         </p>
       </div>
       <div className='message frnd-message'>

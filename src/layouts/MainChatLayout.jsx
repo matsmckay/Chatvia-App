@@ -18,17 +18,15 @@ const MainChatLayout = () => {
     e.preventDefault()
 
     const user2 = selectedChatUser ? selectedChatUser.uid : 'No selected user'
-    console.log('user2:', user2)
 
     const user1 = auth.currentUser
-    console.log('user1:', user1 ? user1.uid : 'User not authenticated')
 
     const id = user1
       ? user1.uid > user2
         ? `${user1.uid + user2}`
         : `${user2 + user1.uid}`
       : 'User not authenticated'
-    console.log('id:', id)
+
     let url
     if (img) {
       const imgRef = ref(
@@ -39,14 +37,6 @@ const MainChatLayout = () => {
       const dlurl = await getDownloadURL(ref(storage, snap.ref.fullPath))
       url = dlurl
     }
-
-    console.log('message data:', {
-      text,
-      from: user1 ? user1.uid : 'user not authenicated',
-      to: user2,
-      createdAt: Timestamp.fromDate(new Date()),
-      media: url || '',
-    })
 
     // messages => id => chat => add doc
     await addDoc(collection(db, 'messages', id, 'chat'), {
