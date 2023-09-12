@@ -13,13 +13,12 @@ const MainChatLayout = () => {
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
   const msgs = useSelector((state) => state.cart.msgs)
   // user1 is the currently logged in user
+  const user1 = auth.currentUser
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     const user2 = selectedChatUser ? selectedChatUser.uid : 'No selected user'
-
-    const user1 = auth.currentUser
 
     const id = user1
       ? user1.uid > user2
@@ -54,7 +53,7 @@ const MainChatLayout = () => {
       <MainChatHeader />
       <div className='messages'>
         {msgs.length
-          ? msgs.map((msg, i) => <Message key={i} msg={msg} />)
+          ? msgs.map((msg, i) => <Message key={i} msg={msg} user1={user1} />)
           : null}
       </div>
       <Input

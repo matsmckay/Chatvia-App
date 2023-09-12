@@ -91,16 +91,16 @@ form {
   height: calc(100vh - 20px);
 }
 
-.chat-box {
+.message-wrapper {
   position: relative;
   max-width: 100%;
   overflow: auto;
   padding: 0 50px;
-  border-top: 1px solid var(--chatBorders);
-  border-bottom: 1px solid var(--chatBorders);
 }
 
 .messages {
+  border-top: 1px solid var(--chatBorders);
+  border-bottom: 1px solid var(--chatBorders);
   height: calc(100% - 120px);
   overflow: auto;
 }
