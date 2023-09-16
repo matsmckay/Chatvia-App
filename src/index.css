@@ -5,6 +5,7 @@
   --primary: #7269ef;
   --secondary: #fff;
   --messageBubBg: #f5f7fb;
+  --messageOwnerBg: #0084ff;
   --chatBorders: #f0eff5;
   --inputBg: #e6ebf5;
   --sbMenuItems: #878a92;
@@ -91,13 +92,6 @@ form {
   height: calc(100vh - 20px);
 }
 
-.message-wrapper {
-  position: relative;
-  max-width: 100%;
-  overflow: auto;
-  padding: 0 50px;
-}
-
 .messages {
   border-top: 1px solid var(--chatBorders);
   border-bottom: 1px solid var(--chatBorders);
@@ -105,13 +99,48 @@ form {
   overflow: auto;
 }
 
-.message {
+.message-wrapper {
   position: relative;
-  display: flex;
-  width: 100%;
-  margin: 5px 0;
+  max-width: 100%;
+  overflow: auto;
+  margin-top: 5px;
+  padding: 0 50px;
 }
 
+.message-wrapper p {
+  padding: 10px;
+  display: inline-block;
+  max-width: 50%;
+  text-align: left;
+  border-radius: 5px;
+}
+
+.message-wrapper img {
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.message-wrapper span {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.85em;
+  opacity: 0.5;
+  /* color: var(--timeStamp); */
+}
+
+.message-wrapper.own {
+  text-align: right;
+}
+
+.me {
+  background: var(--messageOwnerBg);
+  color: var(--secondary);
+}
+
+.friend {
+  background: var(--messageBubBg);
+}
+/* 
 .message p {
   position: relative;
   right: 0;
@@ -121,9 +150,9 @@ form {
   background: var(--messageBubBg);
   border-radius: 10px;
   font-size: 0.9em;
-}
+} */
 
-.message p::before {
+/* .message-wrapper p.me::before {
   content: '';
   position: absolute;
   top: 0;
@@ -137,13 +166,6 @@ form {
     transparent 50%,
     transparent
   );
-}
-
-.message p span {
-  display: block;
-  margin-top: 5px;
-  font-size: 0.85em;
-  opacity: 0.5;
 }
 
 .my-message {
@@ -163,7 +185,7 @@ form {
   text-align: left;
 }
 
-.message.frnd-message p::before {
+.message-wrapper p.friend::before {
   content: '';
   position: absolute;
   top: 0;
@@ -177,7 +199,7 @@ form {
     transparent 50%,
     transparent
   );
-}
+} */
 
 .chat-info {
   height: 60px;
