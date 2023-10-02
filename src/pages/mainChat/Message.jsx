@@ -6,8 +6,7 @@ const Message = ({ msg, user1 }) => {
   useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [msg])
-  console.log(user1)
-  console.log(msg.from)
+
   return (
     <div
       className={`message-wrapper ${msg.from === user1.uid ? 'own' : ''}`}

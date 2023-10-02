@@ -1,24 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Message from '../pages/mainChat/Message'
 import Input from '../pages/mainChat/Input'
 import MainChatHeader from '../components/MainChatHeader'
 import { db, auth, storage } from '../firebase'
-import { collection, addDoc, Timestamp, doc, setDoc } from 'firebase/firestore'
+import {
+  collection,
+  addDoc,
+  Timestamp,
+  doc,
+  setDoc,
+  onSnapshot,
+} from 'firebase/firestore'
 import { useSelector } from 'react-redux'
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 
 const MainChatLayout = () => {
   const [text, setText] = useState('')
   const [img, setImg] = useState('')
+  const [data, setData] = useState('')
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
   const msgs = useSelector((state) => state.cart.msgs)
   // user1 is the currently logged in user
   const user1 = auth.currentUser
+  const user2 = selectedChatUser ? selectedChatUser.uid : 'No selected user'
+
+  // useEffect(() => {
+  //   const id = user1
+  //     ? user1.uid > user2
+  //       ? `${user1.uid + user2}`
+  //       : `${user2 + user1.uid}`
+  //     : 'User not authenticated'
+  //   let unsub = onSnapshot(doc(db, 'lastMsg', id), (doc) => {
+  //     setData(doc.data())
+  //   })
+  //   return () => unsub()
+  // }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    const user2 = selectedChatUser ? selectedChatUser.uid : 'No selected user'
 
     const id = user1
       ? user1.uid > user2
@@ -44,6 +63,14 @@ const MainChatLayout = () => {
       to: user2,
       createdAt: Timestamp.fromDate(new Date()),
       media: url || '',
+    })
+    await setDoc(doc(db, 'lastMsg', id), {
+      text,
+      from: user1 ? user1.uid : 'user not authenicated',
+      to: user2,
+      createdAt: Timestamp.fromDate(new Date()),
+      media: url || '',
+      unread: true,
     })
     setText('')
   }

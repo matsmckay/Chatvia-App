@@ -8,7 +8,6 @@ import {
   orderBy,
 } from 'firebase/firestore'
 import Search from './Search'
-import chatImg from '../../assets/users/avatar-2.jpg'
 import Loading from '../../components/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -16,6 +15,7 @@ import {
   setSelectedChatUser,
   setMsgs,
 } from '../../features/cart/cartSlice'
+import User from '../../components/User'
 
 const ChatList = () => {
   const dispatch = useDispatch()
@@ -79,30 +79,36 @@ const ChatList = () => {
         <Loading />
       ) : (
         chatList.map((user) => (
-          <div
-            className='chats-container'
-            onClick={() => selectUser(user)}
+          <User
             key={user.uid}
-          >
-            <div className='user-chat'>
-              <img src={user.avatar || chatImg} alt='avatar' />
-              <div className='user-chat-info'>
-                <div className='list-head'>
-                  <h4>{user.name}</h4>
+            user={user}
+            selectUser={selectUser}
+            user1={user1}
+          />
+          // <div
+          //   className='chats-container'
+          //   onClick={() => selectUser(user)}
+          //   key={user.uid}
+          // >
+          //   <div className='user-chat'>
+          //     <img src={user.avatar || chatImg} alt='avatar' />
+          //     <div className='user-chat-info'>
+          //       <div className='list-head'>
+          //         <h4>{user.name}</h4>
 
-                  <p className='time'>11:47</p>
-                </div>
-                <div className='message-p'>
-                  <p>Hello you bum!</p>
-                  <div
-                    className={`user-status ${
-                      user.isOnline ? 'online' : 'offline'
-                    }`}
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          //         <p className='time'>11:47</p>
+          //       </div>
+          //       <div className='message-p'>
+          //         <p>Hello you bum!</p>
+          //         <div
+          //           className={`user-status ${
+          //             user.isOnline ? 'online' : 'offline'
+          //           }`}
+          //         ></div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // </div>
         ))
       )}
     </div>
