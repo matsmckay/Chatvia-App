@@ -113,6 +113,7 @@ form {
   max-width: 50%;
   text-align: left;
   border-radius: 5px;
+  word-wrap: break-word;
 }
 
 .message-wrapper img {
@@ -140,66 +141,6 @@ form {
 .friend {
   background: var(--messageBubBg);
 }
-/* 
-.message p {
-  position: relative;
-  right: 0;
-  text-align: right;
-  max-width: 65%;
-  padding: 12px;
-  background: var(--messageBubBg);
-  border-radius: 10px;
-  font-size: 0.9em;
-} */
-
-/* .message-wrapper p.me::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -12px;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(
-    135deg,
-    var(--messageBubBg) 0%,
-    var(--messageBubBg) 50%,
-    transparent 50%,
-    transparent
-  );
-}
-
-.my-message {
-  justify-content: flex-end;
-}
-
-.my-message p {
-  background: var(--messageBubBg);
-}
-
-.frnd-message {
-  justify-content: flex-start;
-}
-
-.frnd-message p {
-  background: var(--primary);
-  text-align: left;
-}
-
-.message-wrapper p.friend::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -12px;
-  width: 20px;
-  height: 20px;
-  background: linear-gradient(
-    225deg,
-    var(--primary) 0%,
-    var(--primary) 50%,
-    transparent 50%,
-    transparent
-  );
-} */
 
 .chat-info {
   height: 60px;
@@ -348,6 +289,7 @@ input::placeholder {
   background: var(--primary);
   cursor: pointer;
 }
+
 /* NAVBAR/ROOT LAYOUT STYLING */
 
 .root-layout {
@@ -454,6 +396,7 @@ nav a.active {
   padding: 10px;
   position: relative;
   overflow: auto;
+  max-width: 250px;
 }
 
 .chats-container {
@@ -464,6 +407,11 @@ nav a.active {
   width: 100%;
 }
 
+.selected-user {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
 .user-chat {
   display: flex;
   justify-content: flex-start;
@@ -472,8 +420,9 @@ nav a.active {
   width: 100%;
 }
 
-.user-chat:hover {
-  background: var(--inputBg);
+.chats-container:hover {
+  background: var(--primary);
+  color: var(--secondary);
   border-radius: 2%;
 }
 
@@ -493,14 +442,8 @@ nav a.active {
 
 .user-chat-info h4 {
   margin: 0;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
-}
-
-.user-chat-info p {
-  font-size: 11px;
-  color: var(--sbMenuItems);
-  margin-top: 0;
 }
 
 .list-head {
@@ -508,6 +451,23 @@ nav a.active {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+  text-transform: capitalize;
+}
+
+.unread {
+  margin-left: 10px;
+  background: var(--timeStamp);
+  color: white;
+  padding: 2px 4px;
+  border-radius: 10px;
+}
+
+.truncate {
+  font-size: 0.6rem;
+  white-space: nowrap;
+  width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .message-p {

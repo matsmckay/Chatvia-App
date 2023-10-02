@@ -6,6 +6,9 @@ import {
   where,
   onSnapshot,
   orderBy,
+  getDoc,
+  doc,
+  updateDoc,
 } from 'firebase/firestore'
 import Search from './Search'
 import Loading from '../../components/Loading'
@@ -43,7 +46,7 @@ const ChatList = () => {
     }
   }, [])
 
-  const selectUser = (user) => {
+  const selectUser = async (user) => {
     dispatch(setSelectedChatUser(user))
     const user2 = user.uid
     const id = user1
@@ -70,6 +73,12 @@ const ChatList = () => {
       })
       dispatch(setMsgs(msgs))
     })
+    const docSnap = await getDoc(doc(db, 'lastMsg', id))
+    if (docSnap.data()?.from !== user1) {
+      await updateDoc(doc(db, 'lastMsg', id), {
+        unread: false,
+      })
+    }
   }
   return (
     <div className='chat-layout'>
@@ -85,30 +94,6 @@ const ChatList = () => {
             selectUser={selectUser}
             user1={user1}
           />
-          // <div
-          //   className='chats-container'
-          //   onClick={() => selectUser(user)}
-          //   key={user.uid}
-          // >
-          //   <div className='user-chat'>
-          //     <img src={user.avatar || chatImg} alt='avatar' />
-          //     <div className='user-chat-info'>
-          //       <div className='list-head'>
-          //         <h4>{user.name}</h4>
-
-          //         <p className='time'>11:47</p>
-          //       </div>
-          //       <div className='message-p'>
-          //         <p>Hello you bum!</p>
-          //         <div
-          //           className={`user-status ${
-          //             user.isOnline ? 'online' : 'offline'
-          //           }`}
-          //         ></div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </div>
         ))
       )}
     </div>
