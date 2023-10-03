@@ -1,6 +1,10 @@
+import { useState, useEffect } from 'react'
+import { storage, db, auth } from '../firebase'
+import { getDownloadURL, ref } from 'firebase/storage'
+import { getDoc, doc } from 'firebase/firestore'
 import { NavLink, Link, Outlet } from 'react-router-dom'
 
-import currentUserPic from '../assets/users/avatar-1.jpg'
+import anonDefaultPic from '../assets/users/anon-photo-chat-app.jpg'
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -15,6 +19,28 @@ import {
 import MainChatLayout from './MainChatLayout'
 
 const RootLayout = () => {
+  const [avatarURL, setAvatarURL] = useState('')
+
+  useEffect(() => {
+    const fetchAvatarURL = async () => {
+      try {
+        const userDoc = await getDoc(doc(db, 'users', auth.currentUser.uid))
+        if (userDoc.exists()) {
+          const user = userDoc.data()
+          if (user.avatarPath) {
+            const url = await getDownloadURL(ref(storage, user.avatarPath))
+            setAvatarURL(url)
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching avatar URL:', error)
+      }
+    }
+
+    fetchAvatarURL()
+  }, []) // Fetch avatar URL once on component mount
+
+  console.log(avatarURL)
   return (
     <div className='root-layout'>
       <div className='container'>
@@ -63,7 +89,10 @@ const RootLayout = () => {
               </li>
               <li className='current-user'>
                 <NavLink to='about'>
-                  <img src={currentUserPic} alt='Pic of current User' />
+                  <img
+                    src={avatarURL || anonDefaultPic}
+                    alt='Pic of current User'
+                  />
                 </NavLink>
               </li>
             </ul>

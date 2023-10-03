@@ -4,7 +4,7 @@ import { auth, db } from '../firebase'
 import { updateDoc, doc } from 'firebase/firestore'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-
+import chatVia from '../assets/logo-light.png'
 const Login = () => {
   const [data, setData] = useState({
     email: '',
@@ -45,7 +45,9 @@ const Login = () => {
 
   return (
     <div className='registration-container'>
-      <div className='logo'>Chatvia logo</div>
+      <div className='logo'>
+        <img src={chatVia} alt='Chatvia Logo and name' />
+      </div>
       <div className='register-header '>
         <h1>Login</h1>
         <h3>Log into your Chatvia account now</h3>
@@ -81,18 +83,6 @@ const Login = () => {
             // required
           />
         </div>
-        {/* <div className='form-group'>
-          <label htmlFor='confirm-password'>Confirm Password</label>
-          <input
-            type='text'
-            id='confirm-password'
-            name='confirm-password'
-            value={password}
-            aria-required='true'
-            aria-label='Confirm your password'
-            required
-          />
-        </div> */}
         {error ? <p className='error'>{error}</p> : null}
         <div className='btn-container'>
           <button className='btn' disabled={loading}>
@@ -105,7 +95,7 @@ const Login = () => {
         </div> */}
       </form>
       <div>
-        Need to register an account?<Link to='/register'>Sign up!</Link>
+        Need to register an account? <Link to='/register'>Sign up!</Link>
       </div>
       <p>Copyright blah blah</p>
     </div>

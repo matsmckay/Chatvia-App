@@ -37,6 +37,24 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  background: var(--messageBubBg);
+  height: 100vh;
+}
+
+.registration-container form {
+  background: var(--secondary);
+  padding: 3em;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo img {
+  background: black;
+  width: 25%;
 }
 
 .register-header h1 {
@@ -62,6 +80,10 @@ form {
   border: none;
   outline: none;
   transition: 0.3s ease-in-out all;
+  background: var(--primary);
+  color: var(--secondary);
+  margin-top: 1.5em;
+  border-radius: 5px;
 }
 
 .btn:hover {
@@ -250,10 +272,11 @@ form {
   height: 60px;
   background: var(--secondary);
   border-bottom: 1px solid var(--chatBorders);
-  padding-bottom: 10px;
+  /* padding-bottom: 10px; */
   padding-left: 10px;
   display: flex;
   align-items: center;
+  flex-direction: row;
   justify-content: space-between;
 }
 

@@ -1,4 +1,4 @@
-import Img from '../assets/users/avatar-8.jpg'
+import Img from '../assets/users/anon-photo-chat-app.jpg'
 
 const RegisteredUsers = ({ user, selectUser }) => {
   return (

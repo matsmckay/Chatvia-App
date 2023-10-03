@@ -4,6 +4,14 @@ import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
 const Input = ({ handleSubmit, text, setText, setImg }) => {
   return (
     <form className='userInput' onSubmit={handleSubmit}>
+      <div className='send'>
+        <input
+          onChange={(e) => setText(e.target.value)}
+          type='text'
+          placeholder='Enter Message...'
+          value={text}
+        />
+      </div>
       <label htmlFor='img'>
         <FontAwesomeIcon icon={faPaperclip} />
       </label>
@@ -14,14 +22,6 @@ const Input = ({ handleSubmit, text, setText, setImg }) => {
         accept='image/*'
         style={{ display: 'none' }}
       />
-      <div className='send'>
-        <input
-          onChange={(e) => setText(e.target.value)}
-          type='text'
-          placeholder='Enter Message...'
-          value={text}
-        />
-      </div>
       <div>
         <button className='btn'>Send</button>
       </div>

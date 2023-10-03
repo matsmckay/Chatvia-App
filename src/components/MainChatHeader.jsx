@@ -1,4 +1,4 @@
-import chatContactPic from '../assets/users/avatar-4.jpg'
+import chatContactPic from '../assets/users/anon-photo-chat-app.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faMagnifyingGlass,

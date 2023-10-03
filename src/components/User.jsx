@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import chatImg from '../assets/users/avatar-2.jpg'
+import chatImg from '../assets/users/anon-photo-chat-app.jpg'
 import { onSnapshot, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import { useSelector } from 'react-redux'
