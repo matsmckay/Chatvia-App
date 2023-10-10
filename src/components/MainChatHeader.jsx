@@ -20,16 +20,12 @@ const MainChatHeader = () => {
   return (
     <header className='chat-info'>
       <div className='contact-content'>
-        <button className='btn' onClick={handleBackClick}>
+        {/* <button className='btn' onClick={handleBackClick}>
           Back
-        </button>
+        </button> */}
         <div className='contact-img'>
           <img
-            src={
-              selectedChatUser
-                ? selectedChatUser.avatar || chatContactPic
-                : 'No pic available'
-            }
+            src={selectedChatUser ? selectedChatUser.avatar : chatContactPic}
             alt='User pic'
           />
         </div>
@@ -37,11 +33,16 @@ const MainChatHeader = () => {
           <h4>
             {selectedChatUser ? selectedChatUser.name : 'No User Selected'}
           </h4>
-          <span>
-            {selectedChatUser
-              ? `${selectedChatUser.isOnline ? 'online' : 'offline'}`
-              : null}
-          </span>
+
+          {selectedChatUser ? (
+            <div
+              className={`user-status ${
+                selectedChatUser.isOnline ? 'online' : 'offline'
+              }`}
+            ></div>
+          ) : (
+            <p>No User Selected</p>
+          )}
         </div>
       </div>
       <ul className='chat-icons'>
@@ -57,9 +58,9 @@ const MainChatHeader = () => {
         <li>
           <FontAwesomeIcon icon={faUser} />
         </li>
-        <li>
+        {/* <li>
           <FontAwesomeIcon icon={faEllipsis} />
-        </li>
+        </li> */}
       </ul>
     </header>
   )

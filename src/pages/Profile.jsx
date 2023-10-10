@@ -40,7 +40,7 @@ const Profile = () => {
   return (
     <div className='profile-container'>
       <div className='profile-header'>
-        <h1>My Profile</h1>
+        <h2>My Profile</h2>
         <FontAwesomeIcon icon={faEllipsisVertical} />
       </div>
       <UserAvailability />

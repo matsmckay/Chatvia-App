@@ -200,7 +200,7 @@ form {
 .contact-content {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .contact-content img {
@@ -214,13 +214,16 @@ form {
 
 .contact-info {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }
 
 .contact-content h4 {
   margin: 0;
   font-size: 14px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .contact-content span {
@@ -403,6 +406,10 @@ nav a.active {
   border-bottom: 1px solid var(--chatBorders);
 }
 
+.nav-container h2 a {
+  padding: 0;
+}
+
 .nav-bottom {
   padding: 0;
 }
@@ -417,10 +424,10 @@ nav a.active {
 
 /* SEARCH */
 
-.search h2 {
+/* .search h2 {
   height: 50px;
   margin: 0;
-}
+} */
 
 .search-form {
   height: 50px;
@@ -457,7 +464,9 @@ nav a.active {
   padding: 10px;
   position: relative;
   overflow: auto;
-  max-width: 250px;
+  max-width: 375px;
+  width: 250px;
+  /* width: 100%; */
 }
 
 .chats-container {
@@ -548,7 +557,7 @@ nav a.active {
 .profile-container {
   display: flex;
   flex-direction: column;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
 }
 
 .profile-header {
@@ -717,5 +726,14 @@ h1 {
   }
   to {
     transform: translateY(-50px) scale(1);
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .message-wrapper {
+    padding: 0 5px;
+  }
+  .convo {
+    max-width: 85%;
   }
 }

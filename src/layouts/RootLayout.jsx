@@ -47,9 +47,9 @@ const RootLayout = () => {
         <div className='menu-container'>
           <nav className='nav-container'>
             <div>
-              <h1>
+              <h2>
                 <Link to='home'>CV</Link>
-              </h1>
+              </h2>
             </div>
             <ul className='navLink-container'>
               <li>
