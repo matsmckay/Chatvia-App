@@ -1,4 +1,4 @@
-import currentUserPic from '../assets/users/avatar-1.jpg'
+import chatContactPic from '../assets/users/anon-photo-chat-app.jpg'
 import { useState, useEffect } from 'react'
 import { storage, db, auth } from '../firebase'
 import {
@@ -76,7 +76,7 @@ const UserAvailability = () => {
       <div className='availability-container'>
         <div className='profile-img-container'>
           <img
-            src={user.avatar || currentUserPic}
+            src={user.avatar || chatContactPic}
             alt='Profile pic or avatar of current user'
           />
           <div className='overlay'>

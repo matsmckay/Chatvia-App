@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaperclip } from '@fortawesome/free-solid-svg-icons'
+import { faPaperclip, faFaceSmile } from '@fortawesome/free-solid-svg-icons'
 
 const Input = ({ handleSubmit, text, setText, setImg }) => {
   return (
@@ -12,18 +12,23 @@ const Input = ({ handleSubmit, text, setText, setImg }) => {
           value={text}
         />
       </div>
-      <label htmlFor='img'>
-        <FontAwesomeIcon icon={faPaperclip} />
-      </label>
-      <input
-        onChange={(e) => setImg(e.target.files[0])}
-        type='file'
-        id='img'
-        accept='image/*'
-        style={{ display: 'none' }}
-      />
-      <div>
-        <button className='btn'>Send</button>
+      <div className='input-buttons'>
+        <label htmlFor='emojis'>
+          <FontAwesomeIcon icon={faFaceSmile} />
+        </label>
+        <label htmlFor='img'>
+          <FontAwesomeIcon icon={faPaperclip} />
+        </label>
+        <input
+          onChange={(e) => setImg(e.target.files[0])}
+          type='file'
+          id='img'
+          accept='image/*'
+          style={{ display: 'none' }}
+        />
+        <div>
+          <button className='send-btn'>Send</button>
+        </div>
       </div>
     </form>
   )

@@ -103,7 +103,7 @@ const RootLayout = () => {
         </div>
         {/* END .menu-container */}
         <section className='main-chat'>
-          <MainChatLayout />
+          <MainChatLayout avatarURL={avatarURL} />
         </section>
       </div>
       {/* END .container */}
