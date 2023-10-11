@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faFaceSmile } from '@fortawesome/free-solid-svg-icons'
 
 const Input = ({ handleSubmit, text, setText, setImg }) => {
+  const isTextEmptyOrWhitespace = text.trim() === ''
   return (
     <form className='userInput' onSubmit={handleSubmit}>
       <div className='send'>
@@ -10,6 +11,7 @@ const Input = ({ handleSubmit, text, setText, setImg }) => {
           type='text'
           placeholder='Enter Message...'
           value={text}
+          required
         />
       </div>
       <div className='input-buttons'>
@@ -27,7 +29,9 @@ const Input = ({ handleSubmit, text, setText, setImg }) => {
           style={{ display: 'none' }}
         />
         <div>
-          <button className='send-btn'>Send</button>
+          <button className='send-btn' disabled={isTextEmptyOrWhitespace}>
+            Send
+          </button>
         </div>
       </div>
     </form>
