@@ -22,6 +22,7 @@ const Profile = () => {
 
   const handleChangeDisplayName = () => {
     const user = auth.currentUser
+    console.log(user)
     if (user) {
       updateProfile(user, {
         displayName: newDisplayName,
@@ -44,9 +45,9 @@ const Profile = () => {
         <FontAwesomeIcon icon={faEllipsisVertical} />
       </div>
       <UserAvailability />
+      {/* Figure out a way to edit quote container */}
       <div className='quote-container'>
-        "Chatting is like a joyful rollercoaster ride—laugh out loud, type away
-        your dreams, and remember, the emoticons are the spice of life! 🎢😂🚀"
+        "Remember, the emoticons are the spice of life! 🎢😂🚀"
       </div>
       <div className='profile-info-container'>
         <h3>About</h3>
@@ -54,10 +55,13 @@ const Profile = () => {
           <h4>Name: {user ? auth.currentUser.displayName : 'Not Available'}</h4>
           <input
             type='text'
+            placeholder='Change Display Name'
             value={newDisplayName}
             onChange={(e) => setNewDisplayName(e.target.value)}
           />
-          <button onClick={handleChangeDisplayName}>Change Display Name</button>
+          <button className='profile-btn btn' onClick={handleChangeDisplayName}>
+            CHANGE!
+          </button>
           <h4>Email: {user ? auth.currentUser.email : 'Not Available'}</h4>
           {/* <h4>
             Joined on:{' '}

@@ -552,6 +552,14 @@ nav a.active {
   height: 100vh;
 }
 
+/* USER AVAILABILITY COMPONENT */
+
+.availability-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 /* PROFILE */
 
 .profile-container {
@@ -572,14 +580,13 @@ nav a.active {
 
 .profile-info {
   background: var(--secondary);
-}
-
-/* USER AVAILABILITY COMPONENT */
-
-.availability-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.profile-info input {
+  width: 80%;
 }
 
 .profile-img-container {
@@ -629,6 +636,12 @@ nav a.active {
 
 .profile-text-container {
   text-align: center;
+}
+
+.profile-btn {
+  cursor: pointer;
+  width: 80%;
+  text-transform: uppercase;
 }
 
 h1 {
@@ -735,5 +748,24 @@ h1 {
   }
   .convo {
     max-width: 85%;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .chat {
+    /* overflow: hidden; */
+  }
+
+  .menu-container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .nav-container {
+    flex-direction: row;
+  }
+
+  .navLink-container {
+    flex-direction: row;
   }
 }
