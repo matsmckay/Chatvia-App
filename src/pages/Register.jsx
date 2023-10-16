@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import { setDoc, doc } from 'firebase/firestore'
@@ -14,6 +14,11 @@ const Register = () => {
     error: null,
     loading: false,
   })
+
+  const registerInput = useRef('')
+  useEffect(() => {
+    registerInput.current.focus()
+  }, [])
 
   const navigate = useNavigate()
 
@@ -80,7 +85,8 @@ const Register = () => {
             onChange={handleChange}
             aria-required='true'
             aria-label='Enter your desired email address'
-            // required
+            required
+            ref={registerInput}
           />
         </div>
         <div className='form-group'>
@@ -93,7 +99,7 @@ const Register = () => {
             onChange={handleChange}
             aria-required='true'
             aria-label='Enter your desired username'
-            // required
+            required
           />
         </div>
         <div className='form-group'>
@@ -106,7 +112,7 @@ const Register = () => {
             onChange={handleChange}
             aria-required='true'
             aria-label='Enter your desired password'
-            // required
+            required
           />
         </div>
         {error ? <p className='error'>{error}</p> : null}

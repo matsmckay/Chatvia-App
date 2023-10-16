@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import { updateDoc, doc } from 'firebase/firestore'
@@ -12,7 +12,10 @@ const Login = () => {
     error: null,
     loading: false,
   })
-
+  const loginInput = useRef('')
+  useEffect(() => {
+    loginInput.current.focus()
+  }, [])
   const navigate = useNavigate()
 
   const { email, password, error, loading } = data
@@ -67,7 +70,8 @@ const Login = () => {
             onChange={handleChange}
             aria-required='true'
             aria-label='Enter your desired email address'
-            // required
+            required
+            ref={loginInput}
           />
         </div>
         <div className='form-group'>
@@ -80,7 +84,7 @@ const Login = () => {
             onChange={handleChange}
             aria-required='true'
             aria-label='Enter your desired password'
-            // required
+            required
           />
         </div>
         {error ? <p className='error'>{error}</p> : null}
