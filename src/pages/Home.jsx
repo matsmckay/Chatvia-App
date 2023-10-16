@@ -32,7 +32,7 @@ const Home = () => {
           <RegisteredUsers key={user.uid} user={user} selectUser={selectUser} />
         ))}
       </div>
-      <div className='messages-container'>
+      {/* <div className='messages-container'>
         {chat ? (
           <div className='messages-user'>
             <h3>{chat.name}</h3>
@@ -40,7 +40,7 @@ const Home = () => {
         ) : (
           <h3 className='no-conv'>Select a user to start a conversation</h3>
         )}
-      </div>
+      </div> */}
     </div>
   )
 }

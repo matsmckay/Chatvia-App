@@ -5,7 +5,7 @@ import { getDoc, doc } from 'firebase/firestore'
 import { NavLink, Link, Outlet } from 'react-router-dom'
 
 import anonDefaultPic from '../assets/users/anon-photo-chat-app.jpg'
-
+import LogoSVG from '../assets/logo.svg' // importing the logo SVG
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -46,10 +46,10 @@ const RootLayout = () => {
       <div className='container'>
         <div className='menu-container'>
           <nav className='nav-container'>
-            <div>
-              <h2>
-                <Link to='home'>CV</Link>
-              </h2>
+            <div className='registered-users'>
+              <Link to='home'>
+                <img src={LogoSVG} alt='Logo' width='20' height='20' />
+              </Link>
             </div>
             <ul className='navLink-container'>
               <li>
