@@ -47,16 +47,10 @@ const MainChatHeader = () => {
       </div>
       <ul className='chat-icons'>
         <li>
-          <FontAwesomeIcon icon={faMagnifyingGlass} />
-        </li>
-        <li>
           <FontAwesomeIcon icon={faPhone} />
         </li>
         <li>
           <FontAwesomeIcon icon={faVideo} />
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faUser} />
         </li>
         {/* <li>
           <FontAwesomeIcon icon={faEllipsis} />

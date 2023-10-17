@@ -165,7 +165,7 @@ form {
 }
 
 .own p {
-  text-align: right;
+  text-align: left;
 }
 
 .convo {
@@ -398,7 +398,7 @@ nav a.active {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   background: #fff;
   position: relative;
@@ -668,6 +668,17 @@ h1 {
 
 /* REGISTERED USERS COMPONENT */
 
+.registered-users img {
+  height: 20px;
+  width: 20px;
+
+  fill: blue;
+}
+
+.registered-users svg path {
+  fill: var(--sbMenuItems);
+}
+
 .registered-container {
   margin-bottom: 10px;
   padding: 10px;
@@ -747,7 +758,7 @@ h1 {
     padding: 0 5px;
   }
   .convo {
-    max-width: 85%;
+    max-width: 65%;
   }
 }
 
@@ -762,6 +773,11 @@ h1 {
 
   .chat-info {
     padding: 0;
+    justify-content: space-around;
+  }
+
+  .chat-icons {
+    padding-right: 10px;
   }
 
   .menu-container {
@@ -787,7 +803,7 @@ h1 {
   .nav-container {
     position: absolute;
     z-index: 10;
-    height: 30px;
+    height: 60px;
     width: 100vw;
     flex-direction: row;
     border-bottom: 0;
@@ -807,6 +823,10 @@ h1 {
     margin: 0;
   }
 
+  .navLink-container .svg-inline--fa {
+    height: 1.25em;
+  }
+
   .nav-bottom {
     display: flex;
     width: 20%;
@@ -821,6 +841,11 @@ h1 {
   .messages {
     position: relative;
     z-index: 10;
-    height: calc(100% - 154px);
+    height: calc(100% - 184px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-chat {
   }
 }

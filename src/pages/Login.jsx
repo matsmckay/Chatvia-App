@@ -39,7 +39,7 @@ const Login = () => {
         error: null,
         loading: false,
       })
-      navigate('/')
+      navigate('/chats')
     } catch (err) {
       setData({ ...data, error: err.message, loading: false })
       console.log(err)
