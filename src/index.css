@@ -474,6 +474,10 @@ nav a.active {
   width: 250px;
 }
 
+.page-components h2 {
+  text-align: center;
+}
+
 .chats-container {
   position: relative;
   display: flex;
@@ -861,6 +865,10 @@ h1 {
     display: none;
   }
 
+  .chat {
+    height: calc(100vh - 60px);
+  }
+
   .additional-chatlist {
     display: none;
   }
@@ -876,5 +884,23 @@ h1 {
 
   .user-status {
     margin-right: 1rem;
+  }
+
+  .userInput {
+    padding: 0;
+    margin: 0 10px;
+  }
+
+  .list-head {
+    margin-bottom: 0;
+  }
+
+  .truncate {
+    padding-left: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .chats-container {
+    height: 75px;
   }
 }
