@@ -10,21 +10,24 @@ import {
   doc,
   updateDoc,
 } from 'firebase/firestore'
-import Search from './Search'
-import Loading from '../../components/Loading'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setChatList,
   setSelectedChatUser,
   setMsgs,
 } from '../../features/cart/cartSlice'
+import Loading from '../../components/Loading'
 import User from '../../components/User'
+import MainChatLayout from '../../layouts/MainChatLayout'
+import Search from '../../pages/chatList/Search'
 
 const ChatList = () => {
   const dispatch = useDispatch()
   const chatList = useSelector((state) => state.cart.chatList)
   const [isLoading, setIsLoading] = useState(true)
   const user1 = auth.currentUser.uid
+
+  const [currentView, setCurrentView] = useState('chatList')
 
   useEffect(() => {
     try {
@@ -72,6 +75,7 @@ const ChatList = () => {
         msgs.push(modifiedData)
       })
       dispatch(setMsgs(msgs))
+      setCurrentView('mainChatLayout')
     })
 
     // get last message between logged in user and selected user
@@ -84,23 +88,52 @@ const ChatList = () => {
       })
     }
   }
-  return (
-    <div className='chat-layout'>
-      <Search />
 
+  const handleBack = () => {
+    setCurrentView('chatList')
+  }
+
+  return (
+    <>
       {isLoading ? (
         <Loading />
       ) : (
-        chatList.map((user) => (
-          <User
-            key={user.uid}
-            user={user}
-            selectUser={selectUser}
-            user1={user1}
-          />
-        ))
+        <div className='chat-layout'>
+          {currentView === 'chatList' && <Search />}
+          <div
+            className={`mc ${
+              currentView === 'mainChatLayout' ? 'hide-main-chat' : ''
+            }`}
+          >
+            {!isLoading &&
+              currentView === 'chatList' &&
+              chatList.map((user) => (
+                <User
+                  key={user.uid}
+                  user={user}
+                  selectUser={selectUser}
+                  user1={user1}
+                />
+              ))}
+            {currentView === 'mainChatLayout' && (
+              <MainChatLayout handleBack={handleBack} />
+            )}
+          </div>
+          {currentView === 'mainChatLayout' && (
+            <div className='additional-chatlist'>
+              {chatList.map((user) => (
+                <User
+                  key={user.uid}
+                  user={user}
+                  selectUser={selectUser}
+                  user1={user1}
+                />
+              ))}
+            </div>
+          )}
+        </div>
       )}
-    </div>
+    </>
   )
 }
 

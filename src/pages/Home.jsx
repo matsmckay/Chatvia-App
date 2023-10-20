@@ -25,22 +25,13 @@ const Home = () => {
     console.log(user)
   }
   return (
-    <div className='home-container'>
-      <h2>Registered users</h2>
+    <div className='contacts-container'>
+      <h2>Contacts</h2>
       <div className='users-container'>
         {users.map((user) => (
           <RegisteredUsers key={user.uid} user={user} selectUser={selectUser} />
         ))}
       </div>
-      {/* <div className='messages-container'>
-        {chat ? (
-          <div className='messages-user'>
-            <h3>{chat.name}</h3>
-          </div>
-        ) : (
-          <h3 className='no-conv'>Select a user to start a conversation</h3>
-        )}
-      </div> */}
     </div>
   )
 }

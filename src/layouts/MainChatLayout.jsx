@@ -7,7 +7,7 @@ import { collection, addDoc, Timestamp, doc, setDoc } from 'firebase/firestore'
 import { useSelector } from 'react-redux'
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 
-const MainChatLayout = ({ avatarURL }) => {
+const MainChatLayout = ({ avatarURL, handleBack }) => {
   const [text, setText] = useState('')
   const [img, setImg] = useState('')
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
@@ -58,6 +58,9 @@ const MainChatLayout = ({ avatarURL }) => {
 
   return (
     <div className='chat'>
+      <button className='back-chat btn' onClick={handleBack}>
+        Back to Chat List
+      </button>
       <MainChatHeader />
       <div className='messages'>
         {msgs.length
