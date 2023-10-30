@@ -1,14 +1,15 @@
-import { useRef, useEffect } from 'react'
+// import { useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faFaceSmile } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
-const Input = ({ handleSubmit, text, setText, setImg, selectedChatUser }) => {
+const Input = ({ handleSubmit, text, setText, setImg, msgInput }) => {
   const isTextEmptyOrWhitespace = text.trim() === ''
-  const msgInput = useRef('')
-  useEffect(() => {
-    msgInput.current.focus()
-  }, [selectedChatUser])
+  console.log(msgInput)
+  // const msgInput = useRef('')
+  // useEffect(() => {
+  //   msgInput.current.focus()
+  // }, [])
   return (
     <form className='userInput' onSubmit={handleSubmit}>
       <div className='send'>

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Message from '../pages/mainChat/Message'
 import Input from '../pages/mainChat/Input'
 import MainChatHeader from '../components/MainChatHeader'
@@ -11,6 +11,10 @@ const MainChatLayout = ({ avatarURL, handleBack }) => {
   const [text, setText] = useState('')
   const [img, setImg] = useState('')
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
+  const msgInput = useRef('')
+  useEffect(() => {
+    if (msgInput.current) msgInput.current.focus()
+  }, [])
 
   const msgs = useSelector((state) => state.cart.msgs)
   // user1 is the currently logged in user
@@ -80,7 +84,7 @@ const MainChatLayout = ({ avatarURL, handleBack }) => {
         text={text}
         setText={setText}
         setImg={setImg}
-        selectedChatUser={selectedChatUser}
+        msgInput={msgInput}
       />
     </div>
   )
