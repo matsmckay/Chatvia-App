@@ -1,15 +1,16 @@
-// import { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faFaceSmile } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import { useSelector } from 'react-redux'
 
-const Input = ({ handleSubmit, text, setText, setImg, msgInput }) => {
+const Input = ({ handleSubmit, text, setText, setImg }) => {
   const isTextEmptyOrWhitespace = text.trim() === ''
-  console.log(msgInput)
-  // const msgInput = useRef('')
-  // useEffect(() => {
-  //   msgInput.current.focus()
-  // }, [])
+  const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
+  console.log(selectedChatUser)
+  const msgInput = useRef('')
+  useEffect(() => {
+    msgInput.current.focus()
+  }, [selectedChatUser])
   return (
     <form className='userInput' onSubmit={handleSubmit}>
       <div className='send'>
