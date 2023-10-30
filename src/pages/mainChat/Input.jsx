@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPaperclip, faFaceSmile } from '@fortawesome/free-solid-svg-icons'
 import React from 'react'
 
-const Input = ({ handleSubmit, text, setText, setImg }) => {
+const Input = ({ handleSubmit, text, setText, setImg, selectedChatUser }) => {
   const isTextEmptyOrWhitespace = text.trim() === ''
   const msgInput = useRef('')
   useEffect(() => {
     msgInput.current.focus()
-  }, [])
+  }, [selectedChatUser])
   return (
     <form className='userInput' onSubmit={handleSubmit}>
       <div className='send'>

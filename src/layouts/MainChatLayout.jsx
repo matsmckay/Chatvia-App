@@ -80,6 +80,7 @@ const MainChatLayout = ({ avatarURL, handleBack }) => {
         text={text}
         setText={setText}
         setImg={setImg}
+        selectedChatUser={selectedChatUser}
       />
     </div>
   )
