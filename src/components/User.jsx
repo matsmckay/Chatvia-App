@@ -8,7 +8,7 @@ const User = ({ user, selectUser, user1 }) => {
   const user2 = user?.uid
   const [data, setData] = useState('')
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
-
+  console.log(chatImg)
   useEffect(() => {
     const id = user1
       ? user1 > user2

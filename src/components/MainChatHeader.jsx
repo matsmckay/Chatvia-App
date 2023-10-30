@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import chatContactPic from '../assets/users/anon-photo-chat-app.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,7 +17,15 @@ const MainChatHeader = () => {
   const handleBackClick = () => {
     dispatch(setSelectedChatUser(null))
   }
+  const [imgSrc, setImgSrc] = useState(chatContactPic)
 
+  useEffect(() => {
+    if (selectedChatUser && selectedChatUser.avatar) {
+      setImgSrc(selectedChatUser.avatar)
+    } else {
+      setImgSrc(chatContactPic)
+    }
+  }, [selectedChatUser])
   return (
     <header className='chat-info'>
       <div className='contact-content'>
@@ -24,7 +33,7 @@ const MainChatHeader = () => {
           Back
         </button> */}
         <div className='contact-img'>
-          <img src={selectedChatUser.avatar || chatContactPic} alt='User pic' />
+          <img src={imgSrc} alt='User pic' />
         </div>
         <div className='contact-info'>
           <h4>
