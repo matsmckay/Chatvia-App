@@ -24,10 +24,7 @@ const MainChatHeader = () => {
           Back
         </button> */}
         <div className='contact-img'>
-          <img
-            src={selectedChatUser ? selectedChatUser.avatar : chatContactPic}
-            alt='User pic'
-          />
+          <img src={selectedChatUser.avatar || chatContactPic} alt='User pic' />
         </div>
         <div className='contact-info'>
           <h4>
