@@ -18,14 +18,19 @@ const About = () => {
 
   return (
     <div>
-      <h1>User Logout</h1>
-      <div>
+      <h2>User Logout</h2>
+      <div className='user-logout'>
         {user ? (
           <>
-            <Link to='/profile'>Profile</Link>
-            <button className='btn' onClick={handleSignout}>
+            <button className='logout-btn btn' onClick={handleSignout}>
               Logout
             </button>
+            <p>
+              Don't want to logout? Maybe check out and edit your
+              <button className='profile-link btn'>
+                <Link to='/profile'>Profile</Link>??!!
+              </button>
+            </p>
           </>
         ) : (
           <>

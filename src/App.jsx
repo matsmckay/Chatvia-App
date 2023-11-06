@@ -9,6 +9,7 @@ import {
 // pages
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Welcome from './pages/Welcome'
 import Home from './pages/Home'
 import About from './pages/About'
 import ChatListLayout from './layouts/ChatListLayout'
@@ -33,6 +34,7 @@ const router = createBrowserRouter(
       <Route path='login' element={<Login />} />
       <Route exact path='/' element={<PrivateRoute />}>
         <Route exact path='/' element={<RootLayout />}>
+          <Route path='welcome' element={<Welcome />} />
           <Route path='home' element={<Home />} />
           <Route path='profile' element={<Profile />} />
           <Route path='chats' element={<ChatListLayout />}>

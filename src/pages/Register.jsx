@@ -2,8 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { auth, db } from '../firebase'
 import { setDoc, doc } from 'firebase/firestore'
-import { useNavigate } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import chatVia from '../assets/logo-light.png'
 
 const Register = () => {
@@ -54,7 +53,7 @@ const Register = () => {
         error: null,
         loading: false,
       })
-      navigate('/')
+      navigate('/welcome')
     } catch (err) {
       setData({ ...data, error: err.message, loading: false })
       console.log(err)

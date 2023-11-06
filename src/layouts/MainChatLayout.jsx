@@ -58,10 +58,10 @@ const MainChatLayout = ({ avatarURL, handleBack }) => {
 
   return (
     <div className='chat'>
-      <button className='back-chat btn' onClick={handleBack}>
+      {/* <button className='back-chat btn' onClick={handleBack}>
         Back to Chat List
-      </button>
-      <MainChatHeader />
+      </button> */}
+      <MainChatHeader handleBack={handleBack} />
       <div className='messages'>
         {msgs.length
           ? msgs.map((msg, i) => (

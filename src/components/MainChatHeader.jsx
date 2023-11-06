@@ -11,7 +11,8 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { setSelectedChatUser } from '../features/cart/cartSlice'
 
-const MainChatHeader = () => {
+const MainChatHeader = ({ handleBack }) => {
+  console.log(handleBack)
   const dispatch = useDispatch()
   const selectedChatUser = useSelector((state) => state.cart.selectedChatUser)
   const handleBackClick = () => {
@@ -29,9 +30,9 @@ const MainChatHeader = () => {
   return (
     <header className='chat-info'>
       <div className='contact-content'>
-        {/* <button className='btn' onClick={handleBackClick}>
+        <button className='header-btn btn' onClick={handleBack}>
           Back
-        </button> */}
+        </button>
         <div className='contact-img'>
           <img src={imgSrc} alt='User pic' />
         </div>

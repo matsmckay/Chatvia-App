@@ -90,6 +90,43 @@ form {
   transform: scale(1.05);
 }
 
+/* WELCOME PAGE */
+
+.welcome-page {
+  background: var(--primary);
+  color: var(--secondary);
+}
+
+.welcome-page h3 {
+  text-align: center;
+}
+
+.welcome-btn {
+  width: 20%;
+  background: var(--secondary);
+  margin: 0 5px;
+}
+
+.welcome-btn a {
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.welcome-page ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+}
+
+.welcome-page li {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 /* ENTIRE CHAT APP DIV */
 
 .container {
@@ -114,7 +151,7 @@ form {
   height: calc(100vh - 20px);
 }
 
-.back-chat {
+.header-btn {
   cursor: pointer;
   display: none;
 }
@@ -444,7 +481,7 @@ nav a.active {
 }
 
 .search-form input {
-  width: 100%;
+  width: 85%;
   height: 25px;
   padding: 5px;
   border: none;
@@ -562,12 +599,52 @@ nav a.active {
   height: 100vh;
 }
 
+.settings-layout nav {
+  padding-left: 20px;
+}
+
+.help {
+  padding-left: 20px;
+}
+
 /* USER AVAILABILITY COMPONENT */
 
 .availability-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* USER LOGOUT */
+.user-logout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-logout p {
+  text-align: center;
+}
+
+.logout-btn {
+  cursor: pointer;
+  width: 80%;
+  text-transform: uppercase;
+  margin-bottom: 1.5em;
+}
+
+.profile-link {
+  width: 40%;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--secondary);
+  margin-top: 0;
+}
+
+.profile-link a {
+  text-decoration: none;
+  color: var(--secondary);
 }
 
 /* PROFILE */
@@ -578,10 +655,17 @@ nav a.active {
   /* padding: 0.75rem; */
 }
 
+.quote-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .profile-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .profile-header h1 {
@@ -777,6 +861,7 @@ h1 {
 @media screen and (max-width: 730px) {
   .container {
     height: 100vh;
+    /* border: 2px aqua solid; */
   }
 
   .chat {
@@ -794,12 +879,15 @@ h1 {
 
   .menu-container {
     flex-direction: column-reverse;
+    height: calc(100% - 60px);
+    /* border: 2px green solid; */
   }
 
   .menu-container .page-components {
-    padding: 0 10px 0 10px;
+    padding: 0 25px 0 25px;
     height: calc(100vh-60px);
     overflow-y: auto;
+    /* border: 2px hotpink solid; */
   }
 
   nav a {
@@ -818,7 +906,7 @@ h1 {
     height: 60px;
     width: 100vw;
     flex-direction: row;
-    border-bottom: 0;
+    border-top: 1px solid var(--chatBorders);
     top: auto;
     bottom: 0;
   }
@@ -878,14 +966,16 @@ h1 {
     display: none;
   }
 
-  .back-chat {
+  .header-btn {
     display: block;
+    margin-top: 0;
   }
 
   .menu-container .page-components {
     max-width: 100vw;
     width: 100%;
     background: var(--secondary);
+    padding: 0;
   }
 
   .user-status {
@@ -894,7 +984,7 @@ h1 {
 
   .userInput {
     padding: 0;
-    margin: 0 10px;
+    /* margin: 0 10px; */
   }
 
   .list-head {

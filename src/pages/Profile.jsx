@@ -50,7 +50,6 @@ const Profile = () => {
         "Remember, the emoticons are the spice of life! 🎢😂🚀"
       </div>
       <div className='profile-info-container'>
-        <h3>About</h3>
         <div className='profile-info'>
           <h4>Name: {user ? auth.currentUser.displayName : 'Not Available'}</h4>
           <input
