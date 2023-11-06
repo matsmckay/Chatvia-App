@@ -121,6 +121,7 @@ const ChatList = () => {
           </div>
           {currentView === 'mainChatLayout' && (
             <div className='additional-chatlist'>
+              <Search />
               {chatList.map((user) => (
                 <User
                   key={user.uid}
