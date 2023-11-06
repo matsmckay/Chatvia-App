@@ -9,23 +9,24 @@ const Welcome = () => {
       <ul>
         <li>
           Go to
-          <button className='welcome-btn btn'>
-            <Link to='/chats'>Chats</Link>
-          </button>
+          <Link to='/chats'>
+            <button className='welcome-btn btn'>Chats</button>
+          </Link>
           to begin searching and chatting with your follow ChatVIA peeps!
         </li>
         <li>
           Go to
-          <button className='welcome-btn btn'>
-            <Link to='/profile'>Profile</Link>
-          </button>
+          <Link to='/profile'>
+            <button className='welcome-btn btn'>Profile</button>
+          </Link>
           to edit your information
         </li>
         <li>
-          Go to{' '}
-          <button className='welcome-btn btn'>
-            <Link to='/home'>Contacts</Link>
-          </button>{' '}
+          Go to
+          <Link to='/home'>
+            {' '}
+            <button className='welcome-btn btn'>Contacts</button>
+          </Link>
           to see which users are registered
         </li>
       </ul>

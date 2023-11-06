@@ -105,12 +105,13 @@ form {
   width: 60%;
   background: var(--secondary);
   margin: 0 5px;
+  cursor: pointer;
+  color: var(--primary);
+  text-transform: uppercase;
 }
 
 .welcome-btn a {
-  color: var(--primary);
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .welcome-page ul {
