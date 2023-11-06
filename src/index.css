@@ -481,7 +481,7 @@ nav a.active {
 }
 
 .search-form input {
-  width: 85%;
+  width: 8%;
   height: 25px;
   padding: 5px;
   border: none;
@@ -908,7 +908,7 @@ h1 {
     flex-direction: row;
     border-top: 1px solid var(--chatBorders);
     top: auto;
-    bottom: 0;
+    bottom: -20px;
   }
 
   .registered-users {
