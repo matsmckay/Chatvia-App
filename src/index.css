@@ -657,8 +657,52 @@ nav a.active {
 }
 
 .quote-container {
-  padding-left: 20px;
-  padding-right: 20px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quote-container p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.quote-container h4 {
+  text-align: center;
+}
+
+.quote-container input {
+  width: 80%;
+}
+
+.name-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.name-container p {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.email-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.email-container button {
+  margin-bottom: 0;
+}
+
+.email-container .error-message {
+  color: red;
 }
 
 .profile-header {
@@ -678,6 +722,11 @@ nav a.active {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.profile-info h4 {
+  margin: 0;
+  width: 100%;
 }
 
 .profile-info input {
@@ -739,6 +788,8 @@ nav a.active {
   cursor: pointer;
   width: 80%;
   text-transform: uppercase;
+  margin-bottom: 1.5em;
+  margin-top: 0.25em;
 }
 
 h1 {

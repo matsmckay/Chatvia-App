@@ -26,6 +26,22 @@ const Register = () => {
     setData({ ...data, [e.target.name]: e.target.value })
   }
 
+  const getCustomErrorMessage = (errorCode) => {
+    switch (errorCode) {
+      case 'auth/invalid-email':
+        return 'Invalid email address. Please check your spelling and try again.'
+      case 'auth/user-disabled':
+        return 'Your account has been disabled. Please contact support.'
+      case 'auth/user-not-found':
+        return 'User not found. Please check your credentials.'
+      case 'auth/wrong-password':
+        return 'Invalid password. Please check and try again.'
+      // Add more cases for other error codes as needed
+      default:
+        return 'An error occurred. Please try again later.'
+    }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     setData({ ...data, error: null, loading: true })
@@ -55,7 +71,11 @@ const Register = () => {
       })
       navigate('/welcome')
     } catch (err) {
-      setData({ ...data, error: err.message, loading: false })
+      setData({
+        ...data,
+        error: getCustomErrorMessage(err.code),
+        loading: false,
+      })
       console.log(err)
     }
   }

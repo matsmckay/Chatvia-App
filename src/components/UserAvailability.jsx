@@ -95,8 +95,8 @@ const UserAvailability = () => {
           </div>
         </div>
         <div className='profile-text-container'>
-          <p>{user.name}</p>
-          <p>{user.email}</p>
+          <p>{user ? auth.currentUser.displayName : 'Not available'}</p>
+          <p>{user ? auth.currentUser.email : 'Not Available'}</p>
           {/* <p>Joined on: {user.createdAt.toDate().toDateString()}</p> */}
         </div>
       </div>
